@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="WEHEM accompagne les PME, freelances et startups d’Afrique francophone avec une identité forte, du contenu Facebook utile et une stratégie digitale claire." />
+  <link rel="icon" href="data:," />
+  <title>WEHEM Digital Agency — Rendre visible ce qui mérite d’être vu</title>
+  <!-- ANALYTICS À BRANCHER : coller ici le script GoatCounter ou Umami -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f4f0e8;--surface:#fffdf8;--ink:#1f2019;--muted:#5e6257;--line:#c9bea5;
+      --green:#2E4B23;--green-2:#3d6230;--red:#8C1D2F;--red-deep:#681421;--gold:#C9A227;--gold-bright:#F5D67B;--gold-deep:#8C6A1F;--gold-soft:#f0dfb6;
+      --dark:#111913;--cream:#fff9ed;--shadow:0 18px 55px rgba(53,35,18,.14);
+      --brand-gradient:linear-gradient(90deg,#8C1D2F 0%,#6f292b 46%,#484025 66%,#2E4B23 100%);
+      --gold-metal:linear-gradient(100deg,#F5D67B 0%,#C9A227 54%,#8C6A1F 100%);
+      --r-sm:8px;--r-md:14px;--r-lg:24px;
+    }
+    @media(prefers-color-scheme:dark){
+      :root{--bg:#0c110d;--surface:#141b15;--ink:#f5f0e5;--muted:#c6c0b3;--line:#4a4030;--green:#2E4B23;--green-2:#3d6230;--red:#8C1D2F;--red-deep:#681421;--gold:#C9A227;--gold-bright:#F5D67B;--gold-deep:#8C6A1F;--gold-soft:#4f4022;--dark:#070d09;--cream:#fff9ed;--shadow:0 20px 60px rgba(0,0,0,.4);--brand-gradient:linear-gradient(90deg,#8C1D2F 0%,#6f292b 46%,#484025 66%,#2E4B23 100%)}
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:auto}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+    .nav{position:sticky;top:0;z-index:1000;isolation:isolate;overflow:visible;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav-inner{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .nav-links{display:flex;align-items:center;gap:21px;font-size:.84rem;font-weight:700}
+    .nav-links a:not(.nav-cta):hover{color:var(--red)}
+    .mobile-menu{display:none;width:100%;grid-template-columns:repeat(3,1fr);gap:1px;border-top:1px solid var(--line)}.mobile-menu a{padding:9px 4px;text-align:center;font-size:.72rem;font-weight:800;background:var(--surface)}.mobile-menu a:focus-visible,.mobile-menu a:hover{color:var(--red)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;font-weight:800;transition:transform .18s ease,background .18s ease,color .18s ease;border:0;cursor:pointer}
+    .nav-cta{padding:10px 16px;background:var(--red);color:#fff8e8;box-shadow:inset 0 0 0 1px rgba(229,198,121,.3)}
+    .hero{min-height:760px;padding:70px 0 64px;position:relative;overflow:hidden;background:var(--brand-gradient);color:#fff}
+    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,5,8,.2),transparent 42%,rgba(3,17,9,.16)),radial-gradient(circle at 78% 28%,rgba(229,198,121,.12),transparent 30%);pointer-events:none}
+    .hero:after{content:"";position:absolute;width:560px;height:560px;right:-190px;bottom:-280px;border:1px solid rgba(229,198,121,.22);border-radius:50%;box-shadow:0 0 0 42px rgba(229,198,121,.035),0 0 0 92px rgba(229,198,121,.025)}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:76px;align-items:center;position:relative;z-index:1}
+    .tag{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold-bright);margin-bottom:24px}
+    .tag:before{content:"";width:30px;height:1px;background:var(--gold-bright)}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;letter-spacing:-.025em;line-height:.98}
+    h1{font-size:clamp(3.9rem,7.8vw,7rem);max-width:780px;margin-bottom:25px}
+    h1 em{font-style:normal;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:clamp(1.05rem,1.7vw,1.3rem);color:#f0e9dd;max-width:650px;margin-bottom:34px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:14px 21px}
+    .btn-primary{background:var(--gold-metal);color:#24180c;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}.btn-primary:hover{filter:brightness(1.08);transform:translateY(-2px)}
+    .btn-secondary{border:1px solid rgba(229,198,121,.56);color:#fff8e9;background:rgba(20,10,8,.12)}.btn-secondary:hover{border-color:var(--gold-bright);color:var(--gold-bright)}
+    .hero-visual{position:relative;min-height:650px;display:flex;align-items:flex-end;padding:28px}
+    .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);box-shadow:0 28px 70px rgba(12,5,6,.38);border:1px solid rgba(245,214,123,.35)}
+    .hero-visual:after{content:"";position:absolute;inset:0;border-radius:var(--r-lg);background:linear-gradient(180deg,rgba(9,6,5,.02) 28%,rgba(9,6,5,.9) 100%)}
+    .hero-panel{position:relative;z-index:1;width:100%;border-top:1px solid rgba(229,198,121,.46);border-bottom:1px solid rgba(229,198,121,.46);padding:18px 0;background:linear-gradient(90deg,rgba(14,8,7,.72),rgba(14,8,7,.28));backdrop-filter:blur(5px)}
+    .brand-lockup{display:grid;grid-template-columns:112px 1fr;gap:22px;align-items:center;padding:0 0 24px;margin-bottom:2px;border-bottom:1px solid rgba(229,198,121,.24)}
+    .brand-emblem{width:112px;height:112px;color:var(--gold-bright);filter:drop-shadow(0 8px 18px rgba(16,7,4,.24))}
+    .brand-name{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.15rem,4vw,3.35rem);font-weight:700;line-height:.9;letter-spacing:.06em;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+    .brand-e{display:inline-grid;width:.55em;height:.69em;grid-template-rows:repeat(3,1fr);gap:.12em;vertical-align:.01em;margin:0 .015em}
+    .brand-e i{display:block;background:var(--gold-metal);height:.12em;align-self:center}
+    .brand-subtitle{display:flex;align-items:center;gap:10px;margin-top:12px;color:var(--gold-bright);font-size:.66rem;line-height:1;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+    .brand-subtitle:before,.brand-subtitle:after{content:"";width:24px;height:1px;background:currentColor;opacity:.75}
+    .hero-panel strong{font-family:"Playfair Display",Georgia,serif;font-size:1.48rem;font-weight:600;display:block;color:#fff9ed;line-height:1.08}
+    .hero-panel p{color:#ded8ca;margin:8px 0 0;font-size:.9rem}
+    .hero-panel .line{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid rgba(229,198,121,.18)}
+    .hero-panel .line:last-child{border-bottom:0}.num{color:var(--gold-bright);font-weight:800;font-size:.82rem;padding-top:5px}
+    .proof{background:linear-gradient(90deg,var(--red-deep),var(--red) 40%,var(--green));color:#fff8e9;padding:17px 0;border-top:1px solid rgba(229,198,121,.35)}.proof-inner{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;font-weight:700;font-size:.88rem}.proof span{display:flex;align-items:center;gap:9px}.proof i{width:5px;height:5px;border-radius:50%;background:var(--gold-bright)}
+    section{padding:96px 0}.section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;align-items:end;margin-bottom:50px}.section-head h2{font-size:clamp(3rem,6vw,5.6rem);margin:0}.section-head p{font-size:1.06rem;color:var(--muted);max-width:610px;margin:0}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .service{padding:24px 30px 34px;border-right:1px solid var(--line);position:relative}.service:last-child{border-right:0}.service-media{height:190px;margin:0 0 24px;overflow:hidden;border-radius:var(--r-sm);background:var(--dark)}.service-media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s ease}.service:hover .service-media img{transform:scale(1.025)}.service-no{font-family:"Playfair Display",Georgia,serif;font-size:2.35rem;color:var(--gold);line-height:1}.service h3{font-family:"Playfair Display",Georgia,serif;font-size:1.22rem;line-height:1.3;margin:22px 0 13px}.service p{color:var(--muted);font-size:.94rem;margin-bottom:22px}.service ul{padding:0;margin:0;list-style:none}.service li{padding:8px 0;border-top:1px solid var(--line);font-size:.86rem;font-weight:700}
+    .manifesto{background:var(--brand-gradient);color:#fff;border-top:1px solid rgba(229,198,121,.25);border-bottom:1px solid rgba(229,198,121,.25)}.manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.manifesto h2{font-size:clamp(3.5rem,7vw,6.8rem);margin:0}.manifesto h2 span{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent}.manifesto-copy{border-left:1px solid var(--gold-bright);padding-left:30px}.manifesto-copy p{font-size:1.2rem;color:#f0e9dd}.manifesto-copy strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;margin-top:28px;color:var(--gold-bright)}
+    .work{background:var(--surface)}
+    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .work-card{min-height:260px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#281116,#56101c);color:#fff;position:relative;overflow:hidden;border-radius:var(--r-md);box-shadow:var(--shadow);border:1px solid rgba(187,141,60,.35)}
+    .work-card:nth-child(2){background:linear-gradient(145deg,#681722,#3d1518)}.work-card:nth-child(3){background:linear-gradient(145deg,#4f401e,#2d2f1b)}.work-card:nth-child(4){background:linear-gradient(145deg,#274632,#12281c)}
+    .work-card:after{content:attr(data-index);position:absolute;right:8px;bottom:-30px;font-family:"Playfair Display",Georgia,serif;font-size:9rem;color:rgba(229,198,121,.09);line-height:1}
+    .work-card h3{font-family:"Playfair Display",Georgia,serif;font-size:1.48rem;margin:0;max-width:320px;line-height:1.2;color:#fff9ed}.work-card p{margin:0;color:var(--gold-bright);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.work-link{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:.9rem;position:relative;z-index:1;color:#f5ead4}.work-link:hover{color:var(--gold-bright)}.work-link svg{width:18px}
+    .case-feature{grid-column:1/-1;min-height:340px;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;background:linear-gradient(125deg,#50131d 0%,#241114 62%,#172319 100%)}.case-feature .case-proof{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{padding:18px;border-top:1px solid rgba(245,214,123,.45);background:rgba(9,6,5,.18)}.metric strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:2.7rem;color:var(--gold-bright);line-height:1}.metric span{font-size:.78rem;color:#f0e9dd}.case-label{display:inline-block;margin-bottom:18px;padding:6px 10px;border:1px solid rgba(245,214,123,.48);border-radius:999px;color:var(--gold-bright);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.case-copy{max-width:610px;position:relative;z-index:1}.case-copy h3{font-size:clamp(2rem,4vw,3.25rem);max-width:560px}.case-copy .summary{color:#e8dfcf;font-size:1rem;margin:16px 0 0}.work-card .deliverables{margin:18px 0 0;padding:0;list-style:none;color:#f3ead9;position:relative;z-index:1}.work-card .deliverables li{display:inline}.work-card .deliverables li:not(:last-child):after{content:" · ";color:var(--gold-bright)}
+    .pricing{background:var(--bg)}.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}.price-card{padding:30px;background:var(--surface);border-top:4px solid var(--green);box-shadow:var(--shadow);display:flex;flex-direction:column}.price-card h3{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;line-height:1.25;margin-bottom:15px}.price{font-family:"Playfair Display",Georgia,serif;font-size:2rem;font-weight:700;color:var(--red);line-height:1.1;margin-bottom:16px}.price small{display:block;font-family:"Inter",sans-serif;font-size:.72rem;color:var(--muted);font-weight:600;margin-top:7px}.price-card p{color:var(--muted);font-size:.9rem;flex:1}.price-card .btn{width:100%;margin-top:12px;background:var(--green);color:#fff}.price-card .btn:hover{background:var(--green-2)}.price-pack{grid-column:1/-1;display:grid;grid-template-columns:1.35fr .65fr;gap:38px;align-items:center;border-top-color:var(--gold);background:linear-gradient(120deg,var(--red-deep),var(--red) 58%,var(--green));color:#fff}.price-pack h3{font-size:2rem}.price-pack p{color:#eee6d8;margin-bottom:0}.price-pack .price{color:var(--gold-bright);font-size:2.5rem}.old-price{text-decoration:line-through;color:#d5cab7;font-family:"Inter",sans-serif;font-size:.9rem;margin-left:8px}.price-pack .btn{background:var(--gold-metal);color:#24180c}
+    .blog{background:var(--surface)}.article-list{border-top:1px solid var(--line)}.article-card{display:grid;grid-template-columns:230px 70px 1fr;gap:26px;align-items:start;padding:30px 0;border-bottom:1px solid var(--line)}.article-cover{width:230px;aspect-ratio:3/2;display:block;object-fit:cover;border-radius:var(--r-sm);box-shadow:0 10px 28px rgba(37,25,13,.13)}.article-no{font-family:"Playfair Display",Georgia,serif;font-size:2.5rem;color:var(--gold)}.article-card h3{font-family:"Playfair Display",Georgia,serif;font-size:1.55rem;line-height:1.2;margin:0 0 8px}.article-card p{color:var(--muted);margin:0;max-width:650px}.article-card details{grid-column:3}.article-card summary{cursor:pointer;font-weight:800;color:var(--red);list-style:none;white-space:nowrap;margin-top:13px}.article-card summary::-webkit-details-marker{display:none}.article-body{margin-top:18px;padding:22px;background:var(--bg);border-top:2px solid var(--gold)}.article-body h4{margin:28px 0 10px;font-size:1.08rem;line-height:1.35}.article-body p,.article-body li{font-size:.92rem;color:var(--muted)}.article-body p{margin:0 0 16px}.article-body ul,.article-body ol{padding-left:22px;margin:0 0 18px}.article-body li{margin-bottom:7px}.article-body hr{border:0;border-top:1px solid var(--line);margin:28px 0}.article-body strong{color:var(--ink)}
+    .method{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}.method h2{font-size:clamp(3.5rem,6vw,5.8rem);position:sticky;top:110px;align-self:start}.steps{counter-reset:step}.step{counter-increment:step;display:grid;grid-template-columns:70px 1fr;gap:22px;padding:28px 0;border-top:1px solid var(--line)}.step:last-child{border-bottom:1px solid var(--line)}.step:before{content:"0" counter(step);font-family:"Playfair Display",Georgia,serif;font-size:2rem;color:var(--gold)}.step h3{margin:0 0 8px;font-size:1.15rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+    .contact-intro{max-width:760px;margin-bottom:45px}.contact-intro h2{font-size:clamp(3.4rem,7vw,6.7rem)}.contact-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:start}.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field-full{grid-column:1/-1}.field label{font-size:.78rem;font-weight:800;color:#fff8e9}.field input,.field select,.field textarea{width:100%;border:1px solid rgba(245,214,123,.45);border-radius:var(--r-sm);padding:13px 14px;background:rgba(9,6,5,.22);color:#fff;font:inherit}.field input::placeholder,.field textarea::placeholder{color:#c9c1b1}.field select option{color:#1f2019;background:#fffdf8}.field textarea{min-height:145px;resize:vertical}.contact-form .btn{grid-column:1/-1;justify-self:start}.form-note{grid-column:1/-1;margin:0;padding:10px 12px;border:1px dashed rgba(245,214,123,.58);color:#f0dca8!important;font-size:.72rem!important;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}.contact-aside{padding:8px 0 0 28px;border-left:1px solid rgba(245,214,123,.42)}.contact-aside h3{font-family:"Playfair Display",Georgia,serif;font-size:1.6rem}.contact-aside .btn{width:100%;margin:15px 0 22px}.contact-meta{margin:0;padding:0;list-style:none}.contact-meta li{padding:12px 0;border-top:1px solid rgba(245,214,123,.22);font-size:.9rem;color:#e2ddd2}.contact-meta strong{display:block;color:var(--gold-bright);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}
+    .contact{padding:90px 0;background:var(--brand-gradient);color:#fff;border-top:1px solid rgba(229,198,121,.25)}.contact-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:80px;align-items:end}.contact h2{font-size:clamp(4rem,8vw,7.5rem);margin:0 0 25px}.contact h2 span{background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent}.contact p{color:#e2ddd2;max-width:650px}.contact-actions{display:flex;flex-direction:column;gap:12px}.contact-actions a,.copy-phone{min-height:55px;border:1px solid rgba(229,198,121,.5);padding:14px 18px;color:#fff8e9;background:rgba(16,7,5,.14);border-radius:var(--r-sm);display:flex;justify-content:space-between;align-items:center;font-weight:700;cursor:pointer;text-align:left}.contact-actions a:hover,.copy-phone:hover{border-color:var(--gold-bright);color:var(--gold-bright)}.pay{margin-top:24px;color:#c9c1b1;font-size:.78rem}.pay strong{color:var(--gold-bright)}.toast{margin-top:12px;min-height:22px;color:var(--gold-bright);font-size:.82rem;font-weight:700}
+    footer{background:#090c09;color:#9d9688;padding:26px 0;font-size:.78rem;border-top:1px solid #241e15}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner strong{font-family:"Playfair Display",Georgia,serif;color:var(--gold-bright);letter-spacing:.08em}
+    @media(max-width:860px){
+      .nav-links{display:none}.nav-inner{flex-wrap:wrap;padding-top:8px}.mobile-menu{display:grid;order:3}.wrap{width:min(100% - 28px,1160px)}.hero{min-height:auto;padding:58px 0}.hero-grid,.section-head,.manifesto-grid,.method,.contact-grid,.contact-layout{grid-template-columns:1fr;gap:42px}.hero-visual{min-height:620px;max-width:680px}.hero-panel{max-width:600px}.services,.price-grid{grid-template-columns:1fr}.service{border-right:0;border-bottom:1px solid var(--line)}.service:last-child{border-bottom:0}.service-media{height:auto;aspect-ratio:3/2}.section-head{margin-bottom:34px}.method h2{position:static}.contact-actions{max-width:560px}.case-feature,.price-pack{grid-column:auto;grid-template-columns:1fr}.article-card{grid-template-columns:190px 54px 1fr}.article-cover{width:190px}.article-card details{grid-column:3}.contact-aside{padding:25px 0 0;border-left:0;border-top:1px solid rgba(245,214,123,.42)}
+    }
+    @media(max-width:560px){
+      .nav-inner{min-height:60px}.nav-cta{font-size:.78rem;padding:9px 13px}.hero{padding-top:42px}.tag{font-size:.67rem}h1{font-size:3.7rem}.lead{font-size:1rem}.actions{display:grid}.btn{width:100%}.hero-visual{min-height:540px;padding:18px}.brand-lockup{grid-template-columns:64px 1fr;gap:12px;padding-bottom:16px}.brand-emblem{width:64px;height:64px}.brand-name{font-size:1.65rem}.brand-subtitle{font-size:.49rem;letter-spacing:.16em;gap:5px}.brand-subtitle:before,.brand-subtitle:after{width:10px}.hero-panel .line{grid-template-columns:34px 1fr;gap:10px;padding:12px 0}.hero-panel strong{font-size:1.12rem}.hero-panel p{font-size:.76rem}section{padding:70px 0}.work-grid{grid-template-columns:1fr}.work-card{min-height:225px;padding:23px}.case-feature{min-height:470px}.case-feature .case-proof{grid-template-columns:1fr 1fr}.metric strong{font-size:2.15rem}.manifesto-copy{padding-left:20px}.step{grid-template-columns:52px 1fr;gap:12px}.article-card{grid-template-columns:48px 1fr;gap:12px}.article-cover{grid-column:1/-1;width:100%}.article-card details{grid-column:2}.article-no{font-size:1.4rem}.contact{padding:70px 0}.contact h2{font-size:3.65rem}.contact-form{grid-template-columns:1fr}.field-full,.contact-form .btn{grid-column:1}.footer-inner{display:block}.footer-inner span{display:block;margin-top:6px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.service-media img{transition:none}}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Navigation principale">
+    <div class="wrap nav-inner">
+      <div class="nav-links">
+        <a href="#services">Services</a><a href="#realisations">Réalisations</a><a href="#tarifs">Tarifs</a><a href="#blog">Blog</a><a href="#methode">Méthode</a>
+      </div>
+      <a class="nav-cta" href="#contact">Parlons de votre marque</a>
+      <div class="mobile-menu" aria-label="Menu mobile">
+        <a href="#services">Services</a><a href="#realisations">Réalisations</a><a href="#tarifs">Tarifs</a><a href="#blog">Blog</a><a href="#methode">Méthode</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="contenu">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="tag">Marketing digital · Afrique francophone</div>
+          <h1>Votre talent mérite d’être <em>vu.</em></h1>
+          <p class="lead">Nous aidons les PME, freelances et startups à transformer une présence discrète en marque claire, crédible et mémorable.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Demander un diagnostic</a>
+            <a class="btn btn-secondary" href="#services">Découvrir nos services</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-image" src="https://juniorberger.github.io/wehem-digital-agency/images/hero-accueil.png" alt="Entrepreneur africain souriant, ordinateur en main, dans l’univers visuel rouge, vert et or de WEHEM" width="1600" height="1066" fetchpriority="high">
+          <div class="hero-panel" aria-label="Identité WEHEM et nos trois leviers">
+          <div class="brand-lockup">
+            <svg class="brand-emblem" viewBox="0 0 160 160" role="img" aria-label="Emblème WEHEM : soleil levant, globe africain et phénix">
+              <defs><linearGradient id="goldEmblem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F5D67B"/><stop offset=".54" stop-color="#C9A227"/><stop offset="1" stop-color="#8C6A1F"/></linearGradient></defs>
+              <g fill="none" stroke="url(#goldEmblem)" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M28 65a52 52 0 0 1 104 0" stroke-width="2.3"/>
+                <path d="M38 65a42 42 0 0 1 84 0" stroke-width="1" opacity=".72"/>
+                <path d="M80 5v13M49 13l7 12M111 13l-7 12M27 34l12 7M133 34l-12 7M18 63h15M142 63h-15" stroke-width="2"/>
+                <circle cx="80" cy="67" r="29" stroke-width="1.7"/>
+                <path d="M51 67h58M80 38c-10 9-15 18-15 29s5 21 15 29M80 38c10 9 15 18 15 29s-5 21-15 29M55 53h50M55 81h50" stroke-width="1" opacity=".72"/>
+                <path d="M78 46l-7 4-4 8-7 7 5 7 3 11 8 7 4-3 6-12 1-9 7-6-4-9-8-2z" fill="url(#goldEmblem)" stroke="none" opacity=".95"/>
+                <path d="M80 93c-8 9-15 15-25 17-11 2-23-1-36-8 9 13 21 22 36 27-10 1-19-1-28-5 11 12 25 19 42 21" stroke-width="3"/>
+                <path d="M80 93c8 9 15 15 25 17 11 2 23-1 36-8-9 13-21 22-36 27 10 1 19-1 28-5-11 12-25 19-42 21" stroke-width="3"/>
+                <path d="M69 145l11-35 11 35M72 105l8 5 8-5" stroke-width="2.3"/>
+              </g>
+            </svg>
+            <div>
+              <div class="brand-name" aria-label="WEHEM">W<span class="brand-e" aria-hidden="true"><i></i><i></i><i></i></span>H<span class="brand-e" aria-hidden="true"><i></i><i></i><i></i></span>M</div>
+              <div class="brand-subtitle"><span>Digital Agency</span></div>
+            </div>
+          </div>
+          <div class="line"><span class="num">01</span><div><strong>Une identité qui vous ressemble</strong><p>Une image cohérente, professionnelle et adaptée à votre marché.</p></div></div>
+          <div class="line"><span class="num">02</span><div><strong>Du contenu qui crée le lien</strong><p>Une présence Facebook régulière, humaine et utile.</p></div></div>
+          <div class="line"><span class="num">03</span><div><strong>Une stratégie qui avance</strong><p>Des priorités nettes pour arrêter de publier au hasard.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="proof" aria-label="Positionnement">
+      <div class="wrap proof-inner"><span><i></i>Expertise locale</span><span><i></i>Conseils concrets</span><span><i></i>Français clair</span><span><i></i>Accompagnement humain</span></div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head"><h2>Trois services.<br>Un cap clair.</h2><p>Pas de jargon ni de solutions surdimensionnées. Nous travaillons d’abord sur les fondations qui font gagner votre marque en confiance, en cohérence et en visibilité.</p></div>
+        <div class="services">
+          <article class="service"><div class="service-media"><img src="https://juniorberger.github.io/wehem-digital-agency/images/service-identite.png" alt="Création artisanale d’une identité visuelle dorée sur fond noir" width="1280" height="853" loading="lazy"></div><div class="service-no">01</div><h3>Identité de Marque Digitale</h3><p>Posez une base visuelle et éditoriale qui permet à votre public de vous reconnaître au premier regard.</p><ul><li>Direction visuelle</li><li>Ton de marque</li><li>Kit de présence digitale</li></ul></article>
+          <article class="service"><div class="service-media"><img src="https://juniorberger.github.io/wehem-digital-agency/images/service-facebook.png" alt="Téléphone affichant un réseau social, entouré de symboles d’engagement dorés" width="1280" height="853" loading="lazy"></div><div class="service-no">02</div><h3>Gestion de Page Facebook & Contenu</h3><p>Transformez votre page en espace actif, utile et régulier — sans sacrifier votre temps.</p><ul><li>Planification éditoriale</li><li>Création de contenus</li><li>Suivi mensuel</li></ul></article>
+          <article class="service"><div class="service-media"><img src="https://juniorberger.github.io/wehem-digital-agency/images/service-audit.png" alt="Loupe dorée examinant des courbes de performance digitale" width="1280" height="853" loading="lazy"></div><div class="service-no">03</div><h3>Audit & Stratégie Digitale</h3><p>Comprenez ce qui bloque votre visibilité et repartez avec des actions prioritaires, réalistes et mesurables.</p><ul><li>Diagnostic de présence</li><li>Recommandations concrètes</li><li>Plan d’action priorisé</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="wrap manifesto-grid">
+        <h2>Le talent ne manque pas.<br><span>La visibilité, si.</span></h2>
+        <div class="manifesto-copy"><p>Une bonne marque n’a pas besoin de crier plus fort. Elle doit être comprise plus vite, reconnue plus facilement et choisie avec confiance.</p><strong>Nous faisons renaître vos marques.</strong></div>
+      </div>
+    </section>
+
+    <section class="work" id="realisations">
+      <div class="wrap">
+        <div class="section-head"><h2>Du concret,<br>pas des promesses.</h2><p>Quatre projets achevés ou documentés qui montrent notre façon de transformer un besoin réel en outil clair, utile et immédiatement exploitable.</p></div>
+        <div class="work-grid">
+          <article class="work-card case-feature" data-index="1">
+            <div class="case-copy"><span class="case-label">Projet phare · Artiste gabonais</span><p>Diagnostic de présence en ligne</p><h3>H Boss : passer des chiffres bruts à un plan d’action</h3><p class="summary">Un audit en 10 slides et un guide « Diagnostic Express », construits à partir de captures réelles du tableau de bord Facebook. Le diagnostic transforme les constats en priorités lisibles pour la suite.</p></div>
+            <div class="case-proof" aria-label="Livrables du projet H Boss"><div class="metric"><strong>10</strong><span>slides d’audit</span></div><div class="metric"><strong>98</strong><span>vues observées</span></div><div class="metric"><strong>1</strong><span>guide Diagnostic Express</span></div><div class="metric"><strong>réel</strong><span>captures du tableau de bord</span></div></div>
+          </article>
+          <article class="work-card" data-index="2"><div><p>Étude de cas · ONG gabonaise</p><h3>PACAPE : une stratégie digitale au service de la lutte contre le paludisme</h3><ul class="deliverables"><li>Audit</li><li>SWOT</li><li>Personas</li><li>Calendrier éditorial</li></ul></div></article>
+          <article class="work-card" data-index="3"><div><p>Ressource · PME africaines</p><h3>« 50 accroches qui arrêtent le scroll »</h3><ul class="deliverables"><li>Guide de 9 pages</li><li>6 catégories d’accroches</li><li>Exemples concrets</li></ul></div></article>
+          <article class="work-card" data-index="4"><div><p>Contenu · WEHEM</p><h3>Un calendrier éditorial prêt pour 30 jours</h3><ul class="deliverables"><li>30 posts</li><li>30 visuels</li><li>Charte WEHEM</li></ul></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="tarifs">
+      <div class="wrap">
+        <div class="section-head"><h2>Des tarifs<br>sans surprise.</h2><p>Des prix de lancement pensés pour les entrepreneurs d’Afrique francophone qui veulent avancer sur des bases solides. Chaque mission commence par un échange pour cadrer le besoin.</p></div>
+        <div class="price-grid">
+          <article class="price-card"><h3>Identité de Marque Digitale</h3><div class="price">50 000 FCFA<small>prix de lancement</small></div><p>Pour rendre ta marque reconnaissable et cohérente sur ses points de contact digitaux.</p><a class="btn" href="https://wa.me/24177915531?text=Bonjour%20WEHEM%2C%20je%20souhaite%20parler%20de%20l%27offre%20Identit%C3%A9%20de%20Marque%20Digitale." target="_blank" rel="noopener">En parler sur WhatsApp</a></article>
+          <article class="price-card"><h3>Gestion de Page Facebook & Contenu</h3><div class="price">75 000 – 100 000 FCFA<small>par mois · prix de lancement</small></div><p>Pour publier avec régularité, tenir une ligne claire et créer une relation durable avec ton audience.</p><a class="btn" href="https://wa.me/24177915531?text=Bonjour%20WEHEM%2C%20je%20souhaite%20parler%20de%20la%20gestion%20de%20ma%20page%20Facebook." target="_blank" rel="noopener">En parler sur WhatsApp</a></article>
+          <article class="price-card"><h3>Audit & Stratégie Digitale</h3><div class="price">100 000 – 150 000 FCFA<small>prix de lancement</small></div><p>Pour comprendre ce qui freine ta visibilité et repartir avec un plan d’action priorisé.</p><a class="btn" href="https://wa.me/24177915531?text=Bonjour%20WEHEM%2C%20je%20souhaite%20parler%20de%20l%27offre%20Audit%20%26%20Strat%C3%A9gie%20Digitale." target="_blank" rel="noopener">En parler sur WhatsApp</a></article>
+          <article class="price-card price-pack"><div><span class="case-label">Offre de lancement</span><h3>Pack Identité + 1 mois de gestion</h3><p>Construis ton identité de marque, puis mets-la immédiatement en mouvement avec un premier mois de contenu Facebook.</p></div><div><div class="price">200 000 FCFA <span class="old-price">350 000 FCFA</span></div><a class="btn" href="https://wa.me/24177915531?text=Bonjour%20WEHEM%2C%20je%20souhaite%20profiter%20du%20Pack%20lancement%20%C3%A0%20200%20000%20FCFA." target="_blank" rel="noopener">Réserver le pack sur WhatsApp</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog" id="blog">
+      <div class="wrap">
+        <div class="section-head"><h2>Le terrain<br>avant le jargon.</h2><p>Des conseils simples pour rendre ton activité plus facile à trouver et plus rassurante à choisir. Premier dossier : ta fiche d’établissement Google.</p></div>
+        <div class="article-list">
+          <article class="article-card">
+            <img class="article-cover" src="https://juniorberger.github.io/wehem-digital-agency/images/blog-gbp-1.png" alt="Fiche d’un commerce local consultée sur un téléphone" width="1280" height="853">
+            <div class="article-no">01</div>
+            <div>
+              <h3>Pourquoi votre fiche Google est invisible</h3>
+              <details>
+                <summary>Lire l’article ↓</summary>
+                <div class="article-body">
+                  <p>Tu as créé ta fiche d'établissement Google il y a quelques mois, peut-être même il y a un an. Tu as rempli le nom, tu as mis une photo, tu as cliqué sur « publier ». Et depuis ? Rien. Le téléphone ne sonne pas plus qu'avant. Quand tu tapes le nom de ton activité suivi de « Libreville », tu te retrouves loin derrière des concurrents dont la devanture est parfois moins belle que la tienne.</p>
+                  <p>Alors tu te dis que Google, c'est compliqué, que c'est réservé aux grandes entreprises, ou que « ça ne marche pas chez nous ». Laisse-moi te détromper : ce n'est ni de la malchance ni une fatalité. L'invisibilité d'une fiche Google a des causes précises. Et des causes précises, ça se comprend et ça se corrige.</p>
+                  <h4>D'abord, c'est quoi « être invisible » sur Google ?</h4>
+                  <p>Imagine un client. Il est à Nzeng-Ayong, son robinet fuit, il sort son téléphone et tape « plombier Libreville ». Google lui montre une petite carte avec trois établissements en tête, avec leurs notes, leurs horaires et un bouton pour appeler. En dessous, un lien « plus de résultats » que presque personne ne touche.</p>
+                  <p>Être invisible, ce n'est pas « ne pas avoir de fiche ». C'est avoir une fiche que personne ne voit, parce qu'elle n'apparaît jamais sous les yeux du client au moment où il cherche. Et ce moment-là, c'est le seul qui compte : le client qui cherche un plombier un dimanche matin ne va pas feuilleter trois pages de résultats. Il appelle l'un des premiers affichés.</p>
+                  <p>Bonne nouvelle : les raisons pour lesquelles tu n'es pas parmi les premiers sont presque toujours les mêmes. Passons-les en revue, une par une.</p>
+                  <h4>Raison n° 1 : ta fiche ne t'appartient pas vraiment</h4>
+                  <p>Ça surprend, mais c'est fréquent : ta fiche existe, mais tu ne l'as jamais revendiquée ni vérifiée. N'importe quel internaute peut suggérer la création d'une fiche pour un commerce, et Google l'affiche parfois avant même que le propriétaire s'en mêle.</p>
+                  <p>Tant que tu n'as pas revendiqué ta fiche et terminé la vérification, tu ne la contrôles pas vraiment. Les horaires, la catégorie ou les photos peuvent être modifiés par des suggestions extérieures, et tu ne reçois aucune alerte quand ça arrive.</p>
+                  <p>Concrètement : un restaurant d'Akanda découvre un jour que sa fiche affiche « fermé le dimanche », alors que le dimanche midi est son meilleur service de la semaine. Quelqu'un l'avait suggéré, l'information avait été appliquée, personne n'avait vérifié. Des clients sont venus, ont trouvé porte close, et ne sont jamais revenus.</p>
+                  <p>Premier réflexe, donc : connecte-toi à ton compte Google, recherche ta fiche, et vérifie qu'elle est bien revendiquée et vérifiée à ton nom. Sans ça, tout le reste ne sert à rien — tu construirais sur un terrain qui n'est pas le tien.</p>
+                  <h4>Raison n° 2 : ta catégorie ne parle pas le langage de tes clients</h4>
+                  <p>La catégorie principale, c'est la case dans laquelle Google te range. C'est elle qui décide pour quelles recherches tu peux apparaître. Et c'est là que beaucoup de PME se trompent sans s'en rendre compte.</p>
+                  <p>Exemple : tu tiens un salon de coiffure à Owendo. Tes clientes tapent « coiffeur Owendo » ou « salon de coiffure Libreville ». Mais ta fiche indique « salon de beauté » comme catégorie principale. Résultat : Google te montre aux personnes qui cherchent des soins esthétiques, pas à celles qui veulent se faire coiffer. Tu es visible… mais pour les mauvaises personnes.</p>
+                  <p>Autre cas classique : la couturière classée en « magasin de vêtements ». Le client qui cherche une retouche tape « couturier » ou « retouche vêtements », et ne la verra jamais.</p>
+                  <p>Comment bien choisir ? Oublie comment tu décris ton métier entre professionnels, et mets-toi à la place de ton client. Qu'est-ce qu'il tape dans Google quand il a besoin de toi ? C'est cette expression-là qui doit guider ton choix. Une seule catégorie principale — la plus proche de l'activité qui fait vivre ton commerce — puis quelques catégories secondaires pour le reste. Et si ton activité évolue, mets-la à jour : une fiche qui dit « pressing » alors que tu proposes aussi un service de blanchisserie, c'est une partie de ta clientèle que tu laisses sur la table.</p>
+                  <h4>Raison n° 3 : ta fiche est à moitié vide</h4>
+                  <p>Fais le test : ouvre ta fiche comme si tu étais un client qui ne te connaît pas. Que voit-il ? Un nom, peut-être une photo floue, et… c'est tout. Pas d'horaires. Pas de description. Pas de liste de services. Pas de zone desservie.</p>
+                  <p>Chaque rubrique vide, c'est deux problèmes en un. Pour Google, c'est un signal faible : pourquoi montrer en premier une fiche qui n'apprend rien à l'internaute ? Pour le client, c'est un doute : « Ils sont ouverts à quelle heure ? Ils font bien ce que je cherche ? Comment je les appelle ? » À chaque question sans réponse, une partie des clients abandonne et clique sur le concurrent d'à côté, dont la fiche est complète.</p>
+                  <p>Une fiche vide, c'est une boutique avec le rideau à moitié baissé : on devine qu'il y a quelque chose derrière, mais on n'est pas sûr que ça vaille le coup d'entrer.</p>
+                  <p>La correction demande juste de la méthode : ton nom exact (celui de ton enseigne, sans y ajouter des mots-clés), ta catégorie, ton numéro de téléphone, tes horaires réels jour par jour, ton adresse ou ta zone desservie si tu te déplaces, une description claire de ce que tu fais, et la liste de tes services. Rien de sorcier — juste de la rigueur.</p>
+                  <h4>Raison n° 4 : personne ne parle de toi</h4>
+                  <p>Les avis clients, c'est la monnaie de la confiance sur Google. Mets-toi encore une fois à la place du client : deux fiches s'affichent. L'une montre des dizaines d'avis avec une bonne note et des réponses du propriétaire. L'autre n'a aucun avis. Laquelle t'inspire confiance ? Laquelle appelles-tu ?</p>
+                  <p>Tu connais déjà la réponse.</p>
+                  <p>Beaucoup de dirigeants me disent : « Mes clients sont satisfaits, ils reviennent, c'est l'essentiel. » Et c'est vrai, c'est l'essentiel pour ton chiffre d'affaires d'aujourd'hui. Mais pour le client qui te découvre demain sur Google, tes habitués satisfaits sont invisibles s'ils n'ont jamais laissé d'avis. Tu as la preuve, mais elle dort dans ton carnet de rendez-vous au lieu de travailler pour toi sur internet.</p>
+                  <p>Et il y a pire que zéro avis : des avis sans réponse. Un client prend le temps d'écrire, en bien ou en mal, et personne ne lui répond. Pour celui qui lit, le message est clair : ici, personne ne tient la boutique en ligne.</p>
+                  <p>La solution tient en une habitude : après chaque vente réussie, demande. Simplement. « Si vous êtes satisfait, un petit avis sur Google m'aiderait beaucoup, ça prend une minute. » La plupart des clients satisfaits acceptent — ils n'y pensent juste jamais tout seuls. Et quand un avis arrive, réponds. Toujours. Merci pour les compliments, calme et proposition de solution pour les critiques.</p>
+                  <h4>Raison n° 5 : ta fiche dort depuis des mois</h4>
+                  <p>Google fait la différence entre une fiche vivante et une fiche abandonnée. Une fiche créée il y a trois ans, jamais retouchée depuis, avec ses photos d'ouverture et des horaires qui n'ont pas bougé, envoie un signal : cet établissement ne suit plus sa présence en ligne. Pourquoi le montrer en premier ?</p>
+                  <p>À l'inverse, une fiche qui bouge — nouvelles photos, publications d'actualité, horaires des jours fériés mis à jour, réponses aux questions des internautes — montre un commerce actif. Et un commerce actif rassure le client.</p>
+                  <p>L'exemple qui fait mal : la période des fêtes. Tu modifies tes horaires d'ouverture pour la fin d'année, mais tu oublies ta fiche Google. Un client fait le déplacement un jour férié en se fiant à tes horaires « normaux », trouve porte close, et laisse un avis furieux. Un seul oubli, et c'est ta note qui trinque.</p>
+                  <p>Prends l'habitude : chaque fois que quelque chose change dans ta vie réelle — horaires, services, photos du lieu, nouveautés — mets ta fiche à jour dans la foulée. Cinq minutes, et ta vitrine en ligne raconte la même histoire que ta vraie boutique.</p>
+                  <h4>Raison n° 6 : tu dis une chose ici, une autre ailleurs</h4>
+                  <p>Ton nom sur Facebook n'est pas tout à fait le même que sur Google. Ton ancien numéro traîne encore sur un annuaire en ligne. Ton adresse est écrite de trois façons différentes selon les sites. Pour toi, ce sont des détails. Pour Google, qui croise les informations pour vérifier que tu es bien un établissement sérieux et localisé, ce sont des signaux contradictoires.</p>
+                  <p>La règle est simple : le trio nom, adresse, téléphone doit être identique partout où ton entreprise apparaît en ligne. Même nom, même orthographe, même numéro. C'est fastidieux à harmoniser une fois, et ensuite c'est réglé pour longtemps.</p>
+                  <h4>Ce que Google regarde, en langage simple</h4>
+                  <p>Derrière toutes ces raisons, il y a une logique assez lisible. Quand quelqu'un cherche un professionnel près de chez lui, Google se pose trois questions :</p>
+                  <ol>
+                    <li><strong>Est-ce que cette fiche correspond à ce que la personne cherche ?</strong> C'est ta catégorie, ta description, tes services.</li>
+                    <li><strong>Est-ce que cet établissement est proche, ou intervient dans la zone cherchée ?</strong> C'est ton adresse et ta zone desservie. La distance, tu ne la contrôles pas — mais tu peux dire clairement où tu interviens.</li>
+                    <li><strong>Est-ce que cet établissement inspire confiance ?</strong> Ce sont tes avis, tes photos, le fait que ta fiche soit vérifiée et vivante.</li>
+                  </ol>
+                  <p>Tu ne contrôles pas tout — tu ne déplaceras pas ta boutique pour être plus près de chaque client. Mais sur le premier et le troisième point, tout est entre tes mains.</p>
+                  <h4>Par quoi commencer, dans l'ordre</h4>
+                  <p>Si tu ne dois faire qu'une chose aujourd'hui, fais-les dans cet ordre :</p>
+                  <ol>
+                    <li><strong>Revendique et vérifie ta fiche.</strong> C'est la clé de la maison.</li>
+                    <li><strong>Corrige ta catégorie principale.</strong> Mets les mots de tes clients, pas les tiens.</li>
+                    <li><strong>Remplis toutes les rubriques</strong> : horaires réels, téléphone, description, services, zone desservie.</li>
+                    <li><strong>Ajoute dix vraies photos</strong> : ta devanture, ton intérieur, ton équipe, ton travail. Des photos récentes, nettes, sans filtre.</li>
+                    <li><strong>Demande des avis</strong> à tes cinq derniers clients satisfaits, et réponds à chacun.</li>
+                  </ol>
+                  <p>Tout ça se fait en une après-midi, sans outil compliqué et sans payer quoi que ce soit. Et c'est le socle sur lequel tout le reste se construit : une fiche complète, vérifiée et vivante, c'est une fiche que Google peut montrer — et que les clients peuvent choisir.</p>
+                  <hr>
+                  <p><em>Ta fiche existe mais le téléphone ne sonne toujours pas ? WEHEM te propose un <strong>audit express gratuit</strong> de ta fiche d'établissement : envoie simplement le nom de ton établissement sur WhatsApp au <strong>+241 77 91 55 31</strong>, et on te dit précisément ce qui bloque ta visibilité. Sans engagement.</em></p>
+                </div>
+              </details>
+            </div>
+          </article>
+          <article class="article-card">
+            <img class="article-cover" src="https://juniorberger.github.io/wehem-digital-agency/images/blog-gbp-2.png" alt="Repère doré sur une carte en relief rouge et verte" width="1280" height="853">
+            <div class="article-no">02</div>
+            <div>
+              <h3>5 erreurs fréquentes sur les fiches Google des PME</h3>
+              <details>
+                <summary>Lire l’article ↓</summary>
+                <div class="article-body">
+                  <p>Ta fiche d'établissement Google, c'est ta vitrine pour tous les clients qui te cherchent en ligne. Et comme une vraie vitrine, elle se juge en quelques secondes : le client la survole, et il décide — j'appelle, ou je passe au suivant.</p>
+                  <p>Le problème, c'est que la plupart des fiches de PME que je vois portent les mêmes défauts. Pas des défauts techniques compliqués : des détails qui paraissent petits, mais qui, mis bout à bout, cassent la confiance du client avant même le premier contact. Voici les cinq erreurs les plus fréquentes, avec des exemples concrets et, surtout, comment les corriger une bonne fois pour toutes.</p>
+                  <h4>Erreur n° 1 : une catégorie trop vague, ou à côté de la plaque</h4>
+                  <p>C'est l'erreur la plus répandue, et la plus coûteuse. La catégorie, c'est le mot-clé principal par lequel Google comprend ton métier. Beaucoup de dirigeants choisissent une catégorie « large » en se disant que ça ratisse plus large. C'est l'inverse qui se produit.</p>
+                  <p>Exemple : un pressing à Libreville qui s'est classé en « service de nettoyage ». Le client qui tape « pressing Libreville » ne le verra pas — Google le montrera plutôt à ceux qui cherchent de l'aide ménagère. Autre exemple : un maquis-restaurant classé en « bar ». Les clients qui cherchent où déjeuner ne le trouveront pas, et ceux qui cherchent un bar pour le soir seront déçus en découvrant une carte de plats.</p>
+                  <p>Pourquoi ça fait mal : tu es invisible pour les gens qui veulent exactement ce que tu vends, et visible pour des gens que tu ne peux pas satisfaire. Le pire des deux mondes — tu rates tes vrais clients et tu attires des curieux déçus.</p>
+                  <p>Comment corriger : oublie comment tu décris ton métier entre professionnels, et demande-toi ce que tes clients tapent dans Google quand ils ont besoin de toi. C'est cette expression-là qui doit devenir ta catégorie principale. Tu peux ajouter des catégories secondaires pour tes activités annexes, mais la principale doit coller à ce qui fait ton chiffre d'affaires. Et vérifie une fois par an : si ton activité a évolué, ta catégorie doit suivre. Une catégorie choisie à la création puis jamais revue, c'est une erreur qui vieillit mal.</p>
+                  <h4>Erreur n° 2 : des horaires faux — surtout le fameux « ouvert 24h/24 »</h4>
+                  <p>Celle-là, je la vois partout. Des fiches qui affichent « ouvert 24h/24, 7j/7 » pour une boutique qui ferme à 19h et reste close le dimanche. Pourquoi ? Souvent parce que la case a été cochée par défaut à la création, ou parce qu'on s'est dit que ça faisait plus sérieux d'être « toujours ouvert ».</p>
+                  <p>Le résultat est désastreux. Un client voit « ouvert », se déplace ou appelle à 21h, et tombe sur un répondeur ou une porte close. Il ne se dit pas « tiens, une simple erreur de fiche ». Il se dit : « ils ne sont pas sérieux ». La confiance est brisée avant même le premier contact — et elle ne se répare pas avec des excuses.</p>
+                  <p>Même sans aller jusqu'au 24h/24, des horaires approximatifs font des dégâts silencieux : la pause déjeuner non indiquée, le samedi où tu fermes plus tôt, les jours fériés jamais mis à jour. Chaque client qui se déplace pour rien est un client perdu — et parfois un avis négatif en prime, qui restera affiché pendant des mois.</p>
+                  <p>Comment corriger : affiche tes horaires réels, jour par jour, pauses comprises. Si tu fermes à 13h le samedi, écris-le noir sur blanc. L'honnêteté attire plus de clients que des horaires flatteurs mais faux — un client qui sait quand tu es ouvert viendra au bon moment, au lieu de venir au mauvais et de repartir furieux. Et prends l'habitude des jours spéciaux : avant chaque jour férié ou période de fêtes, mets à jour tes horaires exceptionnels directement dans ta fiche. Cinq minutes qui évitent des clients furieux et des avis assassins.</p>
+                  <h4>Erreur n° 3 : des informations périmées — l'ancien numéro qui hante ta fiche</h4>
+                  <p>Tu as changé de numéro il y a un an. Ta fiche affiche toujours l'ancien. Ou ton adresse mentionne encore l'ancien quartier, alors que tu as déménagé près du marché Mont-Bouët. Ou ta liste de services propose encore une prestation que tu ne fais plus depuis deux ans.</p>
+                  <p>Pour toi, ce sont des oublis. Pour le client, c'est une impasse : il appelle un numéro qui ne répond plus, il se rend à une adresse où tu n'es plus, il demande un service que tu ne proposes plus. À chaque fois, la conclusion est la même : « cette entreprise n'est pas fiable ».</p>
+                  <p>Le cas de l'ancien numéro est le plus cruel, parce qu'il est silencieux : tu ne sauras jamais combien de clients ont appelé dans le vide. Ils ne te le diront pas — ils appelleront simplement le concurrent suivant sur la liste. Chaque appel manqué, c'est une vente offerte à quelqu'un d'autre, sans même que tu t'en rendes compte.</p>
+                  <p>Comment corriger : fais une relecture complète de ta fiche, rubrique par rubrique, comme si tu la découvrais pour la première fois. Numéro de téléphone, adresse, zone desservie, liste des services, description, lien vers ton site ou ta page Facebook : tout doit correspondre à ta réalité d'aujourd'hui, pas à celle d'il y a deux ans. Et harmonise : le nom, l'adresse et le téléphone doivent être écrits exactement de la même façon sur Google, sur Facebook, sur WhatsApp Business, partout. Quand tu changes quelque chose dans la vraie vie — numéro, adresse, horaires — change-le en ligne le même jour. C'est un réflexe à prendre une fois, et il te protège pendant des années.</p>
+                  <h4>Erreur n° 4 : des photos absentes, floues… ou qui ne montrent rien</h4>
+                  <p>Regarde ta fiche avec des yeux de client. Combien de photos ? Trois images floues prises le jour de l'ouverture, il y a trois ans ? Ou pire : uniquement des visuels promotionnels — une affiche chargée de texte, un logo sur fond coloré, une promo illisible sur l'écran d'un téléphone ?</p>
+                  <p>Les photos, sur une fiche Google, ne servent pas à faire joli. Elles servent à rassurer : à quoi ressemble le lieu ? C'est propre ? Il y a du monde ? Le travail est soigné ? Un client qui hésite entre deux salons de coiffure choisira celui dont il a vu l'intérieur, l'équipe et des coiffures réelles — pas celui qui n'affiche qu'un logo.</p>
+                  <p>Les visuels promotionnels ont leur place… sur tes réseaux sociaux, pas comme images principales de ta fiche. Sur Google, le client veut du vrai : ta devanture (pour te reconnaître dans la rue), ton intérieur, ton équipe au travail, tes réalisations. C'est cette transparence-là qui déclenche l'appel.</p>
+                  <p>Comment corriger : prends ton téléphone, un jour où la lumière est bonne, et fais une dizaine de photos : la devanture sous son meilleur angle, l'intérieur sous deux ou trois angles, ton équipe en action, trois ou quatre exemples de ton travail ou de tes produits. Des photos nettes, récentes, sans filtre agressif. Mets-les en ligne en commençant par la plus parlante — c'est elle qui servira de photo de couverture. Et recommence tous les deux ou trois mois : une fiche dont les photos datent d'hier inspire plus confiance qu'une fiche figée depuis des années. Pendant que tu y es, supprime les visuels illisibles ou obsolètes : une mauvaise photo fait plus de mal que pas de photo du tout.</p>
+                  <h4>Erreur n° 5 : le silence face aux avis</h4>
+                  <p>C'est l'erreur la plus facile à corriger, et pourtant la plus négligée. Des avis arrivent — parfois des compliments, parfois des critiques — et personne ne répond. Jamais. Le vide total.</p>
+                  <p>Pour le client qui lit, un avis sans réponse en dit long : « ici, personne ne s'occupe de la relation client en ligne ». Un compliment ignoré donne l'impression que tu ne remarques même pas tes clients satisfaits. Une critique sans réponse laisse le dernier mot au mécontent — et c'est sa version des faits que les futurs clients retiendront.</p>
+                  <p>À l'inverse, une réponse change tout. Un simple « Merci beaucoup, à très vite ! » sur un avis positif montre un commerçant présent et reconnaissant. Sur un avis négatif, une réponse calme — « Nous sommes désolés pour cette expérience, contactez-nous directement pour qu'on règle ça ensemble » — montre un professionnel qui assume et qui cherche des solutions. Beaucoup de clients lisent d'abord la façon dont tu réponds aux critiques avant de décider de te faire confiance.</p>
+                  <p>Comment corriger : active les notifications pour être prévenu de chaque nouvel avis, et réponds à tous, en quelques phrases, avec ton ton naturel. Les positifs : remercie, et personnalise un minimum — un prénom, un détail de la prestation, ça montre que ce n'est pas un copier-coller. Les négatifs : reste calme, ne te justifie pas en public, ne t'énerve jamais par écrit, et propose de régler le problème en privé en donnant un numéro ou une adresse. Et surtout : ne cherche pas à faire disparaître un avis négatif légitime en espérant qu'on l'oublie — une critique bien gérée vaut infiniment mieux qu'une page trop lisse pour être crédible.</p>
+                  <h4>Et maintenant ? Par où commencer ?</h4>
+                  <p>Aucune de ces cinq erreurs ne demande un expert, un budget ou un outil compliqué. Elles demandent juste un après-midi de rigueur et, ensuite, quelques bonnes habitudes : mettre à jour quand quelque chose change, répondre quand on te parle, montrer ton travail en photos récentes.</p>
+                  <p>Commence par celle qui te fait le plus mal — le plus souvent, ce sont les horaires ou le numéro de téléphone — puis traite les autres une par une, dans l'ordre de cette liste. Dans une semaine, ta fiche racontera la même histoire que ta vraie boutique. Et c'est exactement ce qu'un client a besoin de voir pour décrocher son téléphone au lieu de cliquer sur le concurrent.</p>
+                  <hr>
+                  <p><em>Tu veux savoir lesquelles de ces cinq erreurs ta fiche commet en ce moment ? WEHEM te propose un <strong>audit express gratuit</strong> : envoie le nom de ton établissement sur WhatsApp au <strong>+241 77 91 55 31</strong>, et on te dit quoi corriger en priorité. Sans engagement.</em></p>
+                </div>
+              </details>
+            </div>
+          </article>
+          <article class="article-card">
+            <img class="article-cover" src="https://juniorberger.github.io/wehem-digital-agency/images/blog-gbp-3.png" alt="Checklist d’optimisation tenue entre deux mains" width="1280" height="853">
+            <div class="article-no">03</div>
+            <div>
+              <h3>Optimiser sa fiche Google en 30 minutes</h3>
+              <details>
+                <summary>Lire l’article ↓</summary>
+                <div class="article-body">
+                  <p>Tu n'as pas une semaine devant toi, ni le budget pour déléguer. Tu as trente minutes, ton téléphone, et l'envie que ta fiche d'établissement Google commence enfin à travailler pour toi. Bonne nouvelle : trente minutes bien utilisées suffisent à transformer une fiche négligée en vitrine crédible.</p>
+                  <p>Voici un plan minute par minute, pensé pour un dirigeant seul, sans outil compliqué et sans jargon. Mets un minuteur si tu veux jouer le jeu — et ne saute aucune étape.</p>
+                  <h4>Avant de commencer : 2 minutes de préparation</h4>
+                  <p>Rassemble ce qu'il te faut pour ne pas t'interrompre en route :</p>
+                  <ul>
+                    <li>ton téléphone, connecté au compte Google qui gère ta fiche (ou ton ordinateur, c'est encore plus confortable) ;</li>
+                    <li>tes horaires réels d'ouverture, jour par jour, pauses comprises ;</li>
+                    <li>ton numéro de téléphone professionnel actuel ;</li>
+                    <li>la liste de tes services, telle que tu les vends aujourd'hui ;</li>
+                    <li>quelques photos récentes de ton activité — si tu n'en as pas sous la main, tu les ajouteras juste après, ça ne change rien au plan.</li>
+                  </ul>
+                  <p>Installe-toi au calme, coupe les notifications, et c'est parti.</p>
+                  <h4>De 0 à 10 minutes : les fondations</h4>
+                  <p>Ces dix premières minutes sont les plus rentables : on s'occupe de tout ce qui permet à un client de te comprendre, de te trouver et de t'appeler.</p>
+                  <p><strong>Minutes 0 à 2 — Prends le contrôle de ta fiche.</strong> Ouvre ta fiche d'établissement et vérifie qu'elle est bien revendiquée et vérifiée à ton nom. Si ce n'est pas le cas, lance la vérification immédiatement : c'est la clé de la maison, sans elle tu ne peux rien modifier durablement.</p>
+                  <p><strong>Minutes 2 à 4 — Le nom et la catégorie.</strong> Vérifie que le nom affiché est exactement celui de ton enseigne — ni plus, ni moins. N'y ajoute pas des mots-clés (« Meilleur coiffeur pas cher Libreville ») : en plus de faire peu sérieux, ça brouille la confiance. Puis contrôle ta catégorie principale : est-ce qu'elle décrit ce que tes clients cherchent vraiment ? Un salon de coiffure doit être en « salon de coiffure », pas en « salon de beauté ». Un restaurant qui fait aussi bar doit garder « restaurant » en principal si c'est son activité qui paie les factures.</p>
+                  <p><strong>Minutes 4 à 7 — Le trio qui déclenche l'appel.</strong> Mets à jour ton numéro de téléphone (l'actuel, celui que tu décroches vraiment), tes horaires jour par jour — les vrais, avec les pauses et les jours de fermeture — et ton adresse ou ta zone desservie si tu te déplaces chez les clients. C'est ce trio-là que le client regarde avant d'appeler : s'il est faux ou approximatif, tout le reste ne sert à rien.</p>
+                  <p><strong>Minutes 7 à 10 — La relecture du client.</strong> Relis ta fiche comme si tu ne te connaissais pas. Est-ce qu'un inconnu comprend ce que tu fais, où tu es, quand tu es ouvert et comment te joindre ? Corrige immédiatement tout ce qui ne correspond plus à la réalité : un ancien numéro, une adresse d'avant le déménagement, un service que tu ne proposes plus. Dix minutes, et tes fondations sont saines.</p>
+                  <h4>De 10 à 20 minutes : la preuve</h4>
+                  <p>Un client qui te découvre ne te croit pas sur parole : il cherche des preuves. Ces dix minutes servent à les lui donner.</p>
+                  <p><strong>Minutes 10 à 14 — Les photos, ta meilleure vendeuse.</strong> Ajoute une dizaine de photos récentes et nettes, prises avec ton téléphone — pas besoin d'un photographe. Photographie dans cet ordre : ta devanture (pour qu'on te reconnaisse dans la rue), ton intérieur sous deux ou trois angles, ton équipe au travail, puis trois ou quatre exemples de ton travail ou de tes produits. Mets la plus parlante en premier : c'est elle qui servira de photo de couverture. Évite les visuels promotionnels chargés de texte, illisibles sur téléphone : sur Google, le client veut du vrai, pas de la pub. Et supprime les photos floues ou vieilles de trois ans — une mauvaise photo fait plus de mal que pas de photo.</p>
+                  <p><strong>Minutes 14 à 17 — Tes services, clairement listés.</strong> Renseigne la liste de tes services avec une courte description pour chacun, dans les mots simples de tes clients. « Coupe homme », « tresses », « brushing », avec les prix si tu les affiches : un client qui voit exactement ce que tu proposes n'a plus besoin d'hésiter. Si un service a disparu de ton offre, retire-le — proposer ce que tu ne fais plus, c'est fabriquer des déceptions.</p>
+                  <p><strong>Minutes 17 à 20 — Ta description en trois phrases.</strong> Écris une description courte qui répond à trois questions : que fais-tu ? Pour qui ? Dans quelle zone ? Exemple : « Salon de coiffure à Owendo, nous accueillons hommes et femmes pour coupes, tresses et soins, du lundi au samedi. » Reprends naturellement les mots que tes clients utilisent quand ils te cherchent — « coiffeur », « restaurant », « pressing » — sans les empiler artificiellement. Une description claire vaut mieux qu'un paragraphe qui veut tout dire.</p>
+                  <h4>De 20 à 30 minutes : la conversation</h4>
+                  <p>Une fiche optimisée n'est pas une affiche : c'est un lieu d'échange. Ces dix dernières minutes la rendent vivante.</p>
+                  <p><strong>Minutes 20 à 23 — Réponds aux avis en attente.</strong> S'il y a des avis sans réponse, c'est le moment. Les positifs : remercie en quelques mots, avec un minimum de personnalisation — un prénom, un détail de la prestation. Les négatifs : reste calme, ne te justifie pas en public, propose de régler le problème en privé en donnant un numéro. Chaque réponse montre aux futurs clients qu'il y a quelqu'un aux commandes.</p>
+                  <p><strong>Minutes 23 à 26 — Prépare ta machine à avis.</strong> Les avis ne tombent pas du ciel : ils se demandent. Rédige un message simple que tu enverras sur WhatsApp après chaque vente réussie. Par exemple : « Bonjour ! Merci pour votre visite aujourd'hui. Si vous êtes satisfait, un petit avis sur Google m'aiderait beaucoup — ça prend une minute : [lien]. » Récupère le lien direct vers tes avis dans les paramètres de ta fiche, et enregistre ce message dans tes réponses rapides WhatsApp Business. À partir d'aujourd'hui, chaque client satisfait devient un ambassadeur potentiel.</p>
+                  <p><strong>Minutes 26 à 28 — Publie une actualité.</strong> Les publications montrent que ta fiche est vivante. Annonce quelque chose d'utile : une nouveauté, un horaire spécial pour les fêtes, un service mis en avant, un événement. Un texte court, une belle photo, et c'est publié. Un seul post suffit pour aujourd'hui — l'important, c'est d'avoir enclenché le réflexe.</p>
+                  <p><strong>Minutes 28 à 30 — Vérifie les questions des internautes.</strong> Si ta fiche affiche une rubrique questions-réponses, lis ce qui s'y trouve. Réponds aux questions en attente, corrige les réponses approximatives laissées par d'autres, et ajoute toi-même les deux ou trois questions que tes clients te posent tout le temps — avec tes réponses. Tu viens de transformer les doutes des futurs clients en certitudes.</p>
+                  <h4>Après les 30 minutes : le rituel qui garde ta fiche vivante</h4>
+                  <p>Trente minutes t'ont mis à niveau. Pour le rester, il te faut un rituel mensuel de quinze minutes — bloque-le dans ton agenda, par exemple le premier lundi de chaque mois :</p>
+                  <ul>
+                    <li>ajoute deux ou trois photos récentes ;</li>
+                    <li>réponds aux nouveaux avis ;</li>
+                    <li>mets à jour tes horaires si un jour férié approche ;</li>
+                    <li>publie une actualité — une nouveauté, une promo, un message pour tes clients.</li>
+                  </ul>
+                  <p>C'est tout. Quinze minutes par mois pour une fiche qui travaille pour toi tous les jours : il n'existe pas beaucoup d'investissements aussi rentables.</p>
+                  <p>Et retiens la règle d'or : chaque fois que quelque chose change dans ta vraie vie — horaires, numéro, adresse, services, photos du lieu — mets ta fiche à jour le même jour. Ta vitrine en ligne doit raconter la même histoire que ta vraie boutique, en permanence.</p>
+                  <hr>
+                  <p><em>Tu as suivi le plan mais tu veux être sûr de ne rien avoir raté ? WEHEM te propose un <strong>audit express gratuit</strong> de ta fiche d'établissement : envoie le nom de ton établissement sur WhatsApp au <strong>+241 77 91 55 31</strong>, et on vérifie avec toi que tout est en ordre. Sans engagement.</em></p>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="methode">
+      <div class="wrap method">
+        <h2>Une méthode simple, sans détour.</h2>
+        <div class="steps">
+          <article class="step"><div><h3>Écouter avant de créer</h3><p>Nous clarifions votre activité, votre public et le résultat que vous attendez.</p></div></article>
+          <article class="step"><div><h3>Observer ce qui existe</h3><p>Votre communication actuelle est analysée pour identifier les forces et les points de rupture.</p></div></article>
+          <article class="step"><div><h3>Choisir les bonnes priorités</h3><p>Nous avançons sur les actions qui ont le plus d’impact, au lieu de tout refaire sans raison.</p></div></article>
+          <article class="step"><div><h3>Créer, mesurer, améliorer</h3><p>Chaque livrable sert un objectif clair et peut évoluer avec les retours du terrain.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-intro"><div class="tag">Votre prochain chapitre commence ici</div><h2>Rendons votre marque <span>impossible à ignorer.</span></h2><p>Explique-nous ton besoin. Nous recevrons directement ta demande et reviendrons vers toi avec une première orientation claire.</p></div>
+        <div class="contact-layout">
+          <!-- Formulaire Formspree : Contact WEHEM -->
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xkjgqlnk" method="POST">
+            <div class="field"><label for="contact-name">Nom</label><input id="contact-name" name="nom" type="text" autocomplete="name" placeholder="Ton nom" required></div>
+            <div class="field"><label for="contact-email">Adresse email</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="Ton adresse email" required></div>
+            <div class="field"><label for="contact-channel">Email ou WhatsApp</label><input id="contact-channel" name="contact" type="text" autocomplete="email" placeholder="Ton email ou numéro" required></div>
+            <div class="field field-full"><label for="contact-service">Service souhaité</label><select id="contact-service" name="service" required><option value="">Choisis un service</option><option>Identité de Marque Digitale</option><option>Gestion de Page Facebook & Contenu</option><option>Audit & Stratégie Digitale</option><option>Pack lancement</option><option>Autre besoin</option></select></div>
+            <div class="field field-full"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Parle-nous de ton activité et de ton objectif." required></textarea></div>
+            <button class="btn btn-primary" type="submit">Envoyer ma demande <span aria-hidden="true">→</span></button>
+          </form>
+          <aside class="contact-aside"><h3>Tu préfères écrire directement ?</h3><p>Ouvre WhatsApp et dis-nous simplement où ta visibilité bloque aujourd’hui.</p><a class="btn btn-primary" href="https://wa.me/24177915531" target="_blank" rel="noopener">Écrire au +241 77 91 55 31</a><ul class="contact-meta"><li><strong>Zone</strong>Libreville, Gabon · Afrique francophone</li><li><strong>Email</strong>abaghaabessolo@gmail.com</li><li><strong>Paiements</strong>Airtel Money · Moov Money · Visa</li></ul></aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><strong>WEHEM Digital Agency</strong><span>Libreville, Gabon · Afrique francophone</span><span>© 2026</span></div></footer>
+</body>
+</html>
