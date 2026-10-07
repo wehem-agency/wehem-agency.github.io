@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- SEO -->
+  <title>Contact — WEHEM Digital Agency · Libreville, Gabon</title>
+  <meta name="description" content="Contactez WEHEM Digital Agency à Libreville : WhatsApp, téléphone, e-mail ou formulaire. Parlons de votre marque et de votre visibilité en ligne." />
+  <link rel="canonical" href="https://wehem-agency.github.io/contact.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wehem-agency.github.io/contact.html" />
+  <meta property="og:title" content="Contact — WEHEM Digital Agency" />
+  <meta property="og:description" content="WhatsApp, téléphone, e-mail ou formulaire : parlons de votre marque. Libreville, Gabon." />
+  <meta property="og:image" content="https://wehem-agency.github.io/images/hero-accueil.png" />
+
+  <!-- Polices + feuille de style commune du site -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Styles spécifiques à la page contact (complètent main.css, mobile d'abord) -->
+  <style>
+    /* Utilitaires */
+    .req { color: var(--c-primary); }
+    .muted { color: var(--text-muted); }
+
+    /* En-tête de page */
+    .contact-hero { padding: 7rem 0 2.5rem; text-align: center; }
+    .contact-hero__badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: var(--fs-xs); font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--c-secondary); background: rgba(0,107,60,.08);
+      border: 1px solid rgba(0,107,60,.2); border-radius: 999px; padding: .45rem 1rem;
+    }
+    .contact-hero h1 { font-size: var(--fs-4xl); margin: 1.25rem 0 .75rem; }
+    .contact-hero h1 em { color: var(--c-primary); font-style: normal; }
+    .contact-hero p { max-width: 36rem; margin: 0 auto; color: var(--text-muted); font-size: var(--fs-lg); }
+
+    /* Actions rapides : WhatsApp d'abord */
+    .quick-actions { display: grid; gap: .9rem; margin: 2rem auto 0; max-width: 40rem; }
+    .quick-actions .btn { justify-content: center; width: 100%; }
+    .quick-actions__row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+
+    /* Visuel du hero */
+    .contact-hero__visual { margin: 2.25rem auto 0; max-width: 56rem; }
+    .contact-hero__visual img {
+      width: 100%; height: auto; border-radius: 1.25rem;
+      box-shadow: var(--shadow-lg); display: block;
+    }
+    .contact-hero__visual figcaption {
+      margin-top: .6rem; font-size: var(--fs-xs); color: var(--text-muted);
+    }
+
+    /* Photo dans la colonne coordonnées */
+    .info-photo { overflow: hidden; padding: 0; }
+    .info-photo img { width: 100%; height: auto; display: block; }
+    .info-photo figcaption { padding: .9rem 1.25rem; font-size: var(--fs-sm); color: var(--text-muted); }
+
+    /* Carte Google Maps */
+    .map-embed { border: 0; border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow-sm); }
+    .map-embed iframe { width: 100%; height: 260px; border: 0; display: block; }
+
+    /* Étapes après envoi */
+    .steps { display: grid; gap: 1rem; margin: 3rem 0 0; }
+    .step {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem;
+      padding: 1.25rem; box-shadow: var(--shadow-sm);
+    }
+    .step__num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--c-primary); color: #fff; font-weight: 700; margin-bottom: .6rem;
+    }
+    .step h3 { font-size: var(--fs-md); margin-bottom: .35rem; }
+    .step p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0; }
+
+    /* Bloc principal : formulaire + coordonnées */
+    .contact-grid { display: grid; gap: 2rem; margin: 3rem 0 4rem; }
+
+    .contact-form {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 1.25rem;
+      padding: 1.75rem; box-shadow: var(--shadow-md);
+    }
+    .contact-form h2 { font-size: var(--fs-2xl); margin-bottom: .4rem; }
+    .contact-form > p { color: var(--text-muted); font-size: var(--fs-sm); margin-bottom: 1.5rem; }
+
+    .field { margin-bottom: 1.1rem; }
+    .field label { display: block; font-weight: 600; font-size: var(--fs-sm); margin-bottom: .4rem; }
+    .field label .req { color: var(--c-primary); }
+    .field input, .field select, .field textarea {
+      width: 100%; font: inherit; color: var(--text-main);
+      background: var(--bg-page); border: 1px solid var(--border); border-radius: .65rem;
+      padding: .8rem .95rem;
+    }
+    .field textarea { min-height: 9rem; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: 2px solid var(--c-primary); outline-offset: 1px; border-color: var(--c-primary);
+    }
+    .field__hint { font-size: var(--fs-xs); color: var(--text-muted); margin-top: .35rem; }
+    .field__error { font-size: var(--fs-xs); color: var(--c-primary); margin-top: .35rem; display: none; }
+    .field--invalid input, .field--invalid select, .field--invalid textarea { border-color: var(--c-primary); }
+    .field--invalid .field__error { display: block; }
+
+    .consent { display: flex; gap: .7rem; align-items: flex-start; font-size: var(--fs-sm); color: var(--text-muted); }
+    .consent input { width: 1.15rem; height: 1.15rem; margin-top: .15rem; accent-color: var(--c-primary); flex-shrink: 0; }
+
+    .form-status {
+      display: none; border-radius: .65rem; padding: .9rem 1rem;
+      font-size: var(--fs-sm); margin-bottom: 1.1rem;
+    }
+    .form-status--ok  { display: block; background: rgba(0,107,60,.08); border: 1px solid rgba(0,107,60,.25); color: var(--c-secondary); }
+    .form-status--ko  { display: block; background: rgba(196,30,58,.08); border: 1px solid rgba(196,30,58,.25); color: var(--c-primary); }
+
+    /* Colonne coordonnées */
+    .contact-info { display: grid; gap: 1rem; align-content: start; }
+    .info-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 1rem;
+      padding: 1.25rem; box-shadow: var(--shadow-sm);
+    }
+    .info-card h3 { font-size: var(--fs-md); margin-bottom: .6rem; }
+    .info-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; font-size: var(--fs-sm); }
+    .info-card a { color: var(--text-main); font-weight: 600; }
+    .info-card .muted { color: var(--text-muted); }
+
+    /* Conteneur vidéo 16/9 (optionnel) */
+    .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 1rem; overflow: hidden; background: var(--c-dark); }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Tablette et desktop */
+    @media (min-width: 768px) {
+      .steps { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: 1.25fr 1fr; align-items: start; }
+      .contact-form { padding: 2.25rem; }
+      .field--2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibilité -->
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ═══════════ NAVIGATION (identique à l'accueil) ═══════════ -->
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <div class="nav__inner">
+
+      <a href="index.html" class="nav__logo" aria-label="WEHEM Digital Agency — Accueil">
+        <div class="nav__logo-mark" aria-hidden="true">WHM</div>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">WEHEM</span>
+          <span class="nav__logo-tagline">Digital Agency</span>
+        </div>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="index.html#services" class="nav__link">Services</a></li>
+        <li><a href="index.html#realisations" class="nav__link">Réalisations</a></li>
+        <li><a href="index.html#tarifs" class="nav__link">Tarifs</a></li>
+        <li><a href="index.html#blog" class="nav__link">Blog</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+        <li><a href="index.html#methode" class="nav__link">Méthode</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="nav__theme-toggle" aria-label="Mode sombre" title="Changer de thème">🌙</button>
+        <a href="contact.html" class="btn btn--primary btn--sm" aria-current="page">Parlons de votre marque</a>
+      </div>
+
+      <button class="nav__burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Menu mobile">
+    <a href="index.html#services" class="nav__mobile-link">Services <span>→</span></a>
+    <a href="index.html#realisations" class="nav__mobile-link">Réalisations <span>→</span></a>
+    <a href="index.html#tarifs" class="nav__mobile-link">Tarifs <span>→</span></a>
+    <a href="index.html#blog" class="nav__mobile-link">Blog <span>→</span></a>
+    <a href="index.html#faq" class="nav__mobile-link">FAQ <span>→</span></a>
+    <a href="index.html#methode" class="nav__mobile-link">Méthode <span>→</span></a>
+    <div style="margin-top:1rem">
+      <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center" aria-current="page">Parlons de votre marque</a>
+    </div>
+    <div style="margin-top:1rem">
+      <a href="https://wa.me/c/24107915531" class="btn btn--whatsapp" style="width:100%;justify-content:center">💬 WhatsApp direct</a>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="container">
+
+      <!-- ═══════════ EN-TÊTE ═══════════ -->
+      <section class="contact-hero" aria-labelledby="contact-title">
+        <span class="contact-hero__badge">🇬🇦 Basés à Libreville, Gabon</span>
+        <h1 id="contact-title">Parlons de <em>votre marque.</em></h1>
+        <p>
+          Un projet, une question, un besoin de visibilité ? Écrivez-nous :
+          on vous répond vite, sans jargon et sans engagement.
+        </p>
+
+        <!-- Actions rapides : WhatsApp en premier -->
+        <div class="quick-actions">
+          <a href="https://wa.me/c/24107915531"
+             class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">
+            💬 Discuter sur WhatsApp
+          </a>
+          <div class="quick-actions__row">
+            <a href="tel:+24107915531" class="btn btn--outline">📞 Appeler</a>
+            <a href="mailto:abaghaabessolo@gmail.com?subject=Contact%20depuis%20le%20site%20WEHEM" class="btn btn--outline">✉️ E-mail</a>
+          </div>
+        </div>
+
+        <!-- Visuel : échange direct, contexte local -->
+        <figure class="contact-hero__visual">
+          <img src="images/contact-hero.jpg" alt="Entrepreneur gabonais souriant en appel vidéo depuis son bureau à Libreville, smartphone à la main"
+               loading="lazy" width="1280" height="853" />
+          <figcaption>Photo d'illustration — échange direct avec nos clients, où qu'ils soient.</figcaption>
+        </figure>
+
+        <!-- Ce qui se passe après votre message -->
+        <div class="steps" aria-label="Ce qui se passe après votre message">
+          <div class="step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <h3>On discute</h3>
+            <p>Vous nous expliquez votre besoin, on vous écoute vraiment.</p>
+          </div>
+          <div class="step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <h3>On diagnostique</h3>
+            <p>On regarde ce qui freine votre visibilité aujourd'hui.</p>
+          </div>
+          <div class="step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <h3>On propose</h3>
+            <p>Un plan clair et un devis honnête, adapté à votre budget.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ FORMULAIRE + COORDONNÉES ═══════════ -->
+      <div class="contact-grid">
+
+        <!-- Formulaire -->
+        <section class="contact-form" aria-labelledby="form-title">
+          <h2 id="form-title">Envoyez-nous un message</h2>
+          <p>Remplissez ce formulaire : on vous recontacte rapidement.</p>
+
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+          <!--
+            ENVOI DU FORMULAIRE — configuré le 07/10/2026 via Formspree
+            (endpoint https://formspree.io/f/mjyggroo, testé OK).
+            Pour changer de destinataire : remplace l'URL dans « action » ci-dessous.
+          -->
+          <form id="contact-form" action="https://formspree.io/f/mjyggroo" method="POST" novalidate>
+            <div class="field--2col">
+              <div class="field">
+                <label for="nom">Nom <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="nom" name="nom" autocomplete="name" required minlength="2" />
+                <p class="field__error">Merci d'indiquer votre nom.</p>
+              </div>
+              <div class="field">
+                <label for="telephone">Téléphone / WhatsApp</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel"
+                       placeholder="+241 …" pattern="[0-9+ ]{8,20}" />
+                <p class="field__hint">Pour qu'on puisse vous rappeler ou vous écrire.</p>
+                <p class="field__error">Numéro invalide (chiffres et + uniquement).</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+              <p class="field__error">Merci d'indiquer une adresse e-mail valide.</p>
+            </div>
+
+            <div class="field">
+              <label for="sujet">Sujet <span class="req" aria-hidden="true">*</span></label>
+              <select id="sujet" name="sujet" required>
+                <option value="" disabled selected>Choisissez un sujet…</option>
+                <option value="diagnostic">Diagnostic gratuit de ma présence en ligne</option>
+                <option value="site">Création de site internet</option>
+                <option value="reseaux">Gestion réseaux sociaux &amp; contenu</option>
+                <option value="google">Fiche Google / référencement local</option>
+                <option value="whatsapp">WhatsApp &amp; chatbot IA</option>
+                <option value="prospection">Prospection B2B &amp; leads</option>
+                <option value="autre">Autre demande</option>
+              </select>
+              <p class="field__error">Merci de choisir un sujet.</p>
+            </div>
+
+            <div class="field">
+              <label for="message">Votre message <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required minlength="10"
+                        placeholder="Décrivez votre besoin en quelques lignes…"></textarea>
+              <p class="field__error">Merci d'écrire au moins quelques mots (10 caractères min.).</p>
+            </div>
+
+            <div class="field">
+              <label class="consent" for="consentement">
+                <input type="checkbox" id="consentement" name="consentement" required />
+                <span>J'accepte que WEHEM utilise mes coordonnées pour me recontacter
+                au sujet de ma demande. <span class="req" aria-hidden="true">*</span></span>
+              </label>
+              <p class="field__error">Merci de cocher cette case pour envoyer le formulaire.</p>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg" style="width:100%;justify-content:center">
+              Envoyer mon message →
+            </button>
+          </form>
+        </section>
+
+        <!-- Coordonnées -->
+        <aside class="contact-info" aria-label="Nos coordonnées">
+
+          <div class="info-card">
+            <h3>📍 Nous trouver</h3>
+            <ul>
+              <li>Libreville, Gabon</li>
+              <li>Quartier Palais de Justice</li>
+              <li>Lundi – Vendredi : 9h – 17h</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>📞 Contact direct</h3>
+            <ul>
+              <li>💬 <a href="https://wa.me/c/24107915531" target="_blank" rel="noopener">WhatsApp : +241 07 91 55 31</a></li>
+              <li>📞 <a href="tel:+24107915531">+241 07 91 55 31</a></li>
+              <li>✉️ <a href="mailto:abaghaabessolo@gmail.com">abaghaabessolo@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <figure class="info-card info-photo">
+            <img src="images/contact-commercante.jpg" alt="Commerçante souriante dans son épicerie à Libreville montrant une conversation WhatsApp sur son smartphone"
+                 loading="lazy" width="900" height="1350" />
+            <figcaption>Nos clients : des commerçants et PME d'ici, comme vous.</figcaption>
+          </figure>
+
+          <!-- Carte Google Maps centrée sur le quartier Palais de Justice, Libreville -->
+          <div class="map-embed">
+            <iframe title="Carte — WEHEM Digital Agency, quartier Palais de Justice, Libreville"
+                    src="https://www.google.com/maps?q=Palais+de+Justice,Libreville,Gabon&z=15&output=embed"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen></iframe>
+          </div>
+
+          <!--
+            [?] VIDÉO DE PRÉSENTATION (optionnel, hébergée sur muse.ai)
+            Remplace ce commentaire par le code d'embed fourni par Gaëtan,
+            dans un conteneur 16/9. Exemple de structure :
+            <div class="video-embed">
+              <iframe src="[URL_EMBED_MUSE]" title="Comment WEHEM travaille"
+                      loading="lazy" allowfullscreen></iframe>
+            </div>
+            <p class="field__hint">Résumé : [?] texte de résumé de la vidéo pour le SEO
+            et l'accessibilité.</p>
+            Pas de lecture automatique avec son. Prévoir une image d'affiche légère.
+          -->
+
+        </aside>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══════════ PIED DE PAGE (identique à l'accueil) ═══════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+
+        <div>
+          <div class="footer__brand-name">WEHEM</div>
+          <div class="footer__brand-tagline">Digital Agency · Libreville, Gabon</div>
+          <p class="footer__brand-desc">
+            Nous aidons les PME, freelances et startups d'Afrique francophone à transformer une présence discrète en marque claire, crédible et mémorable.
+          </p>
+          <div class="footer__badge">🇬🇦 Made in Libreville</div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__links">
+            <li><a href="index.html#services" class="footer__link">Création de Site Internet</a></li>
+            <li><a href="index.html#services" class="footer__link">Réseaux Sociaux &amp; Contenu</a></li>
+            <li><a href="index.html#services" class="footer__link">Audit &amp; Stratégie Digitale</a></li>
+            <li><a href="index.html#tarifs" class="footer__link">Pack Lancement</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Ressources</div>
+          <ul class="footer__links">
+            <li><a href="index.html#blog" class="footer__link">Stratégie de marketing digital</a></li>
+            <li><a href="index.html#blog" class="footer__link">Régularité sur les réseaux sociaux</a></li>
+            <li><a href="index.html#blog" class="footer__link">Optimiser en 30 minutes</a></li>
+            <li><a href="index.html#faq" class="footer__link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contact &amp; Paiement</div>
+          <div class="footer__payments">
+            <div class="footer__payment-item">💬 <a href="https://wa.me/c/24107915531" class="footer__link">WhatsApp</a></div>
+            <div class="footer__payment-item">✉️ <a href="mailto:abaghaabessolo@gmail.com" class="footer__link">abaghaabessolo@gmail.com</a></div>
+            <div class="footer__payment-item">💳 Airtel Money · Moov Money</div>
+            <div class="footer__payment-item">💳 Visa accepté</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 WEHEM Digital Agency — Libreville, Gabon. Tous droits réservés.</span>
+        <span>Marketing digital · Afrique francophone</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp sticky -->
+  <a
+    href="https://wa.me/c/24107915531"
+    class="wa-sticky"
+    target="_blank" rel="noopener"
+    aria-label="Discuter sur WhatsApp"
+  >💬</a>
+
+  <script src="assets/js/app.js" defer></script>
+
+  <!-- Validation du formulaire : messages d'erreur clairs, sans dépendance -->
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('form-status');
+      if (!form) return;
+
+      // Affiche / masque l'erreur d'un champ
+      function setInvalid(field, invalid) {
+        field.classList.toggle('field--invalid', invalid);
+        var input = field.querySelector('input, select, textarea');
+        if (input) input.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+      }
+
+      // Vérifie un champ avec l'API de validation native
+      function checkField(field) {
+        var input = field.querySelector('input, select, textarea');
+        if (!input) return true;
+        var ok = input.checkValidity();
+        setInvalid(field, !ok);
+        return ok;
+      }
+
+      // Validation en direct quand l'utilisateur corrige
+      form.querySelectorAll('.field').forEach(function (field) {
+        var input = field.querySelector('input, select, textarea');
+        if (!input) return;
+        input.addEventListener('input', function () { checkField(field); });
+        input.addEventListener('change', function () { checkField(field); });
+      });
+
+      form.addEventListener('submit', function (e) {
+        var fields = Array.prototype.slice.call(form.querySelectorAll('.field'));
+        var firstBad = null;
+        fields.forEach(function (field) {
+          if (!checkField(field) && !firstBad) firstBad = field;
+        });
+
+        if (firstBad) {
+          // Formulaire invalide : on bloque et on guide l'utilisateur
+          e.preventDefault();
+          status.className = 'form-status form-status--ko';
+          status.textContent = '⚠️ Certains champs sont incomplets ou invalides. Vérifiez les messages en rouge.';
+          var input = firstBad.querySelector('input, select, textarea');
+          if (input) input.focus();
+          return;
+        }
+
+        // [?] Si l'endpoint Formspree n'est pas encore configuré, on prévient
+        // au lieu d'envoyer vers une URL invalide.
+        if (form.action.indexOf('[?]') !== -1) {
+          e.preventDefault();
+          status.className = 'form-status form-status--ko';
+          status.textContent = "⚠️ L'envoi du formulaire n'est pas encore configuré (endpoint Formspree manquant).";
+        }
+        // Sinon : envoi normal vers Formspree.
+      });
+    })();
+  </script>
+</body>
+</html>
