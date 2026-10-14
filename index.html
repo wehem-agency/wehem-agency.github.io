@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KTLL7LPB');</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
@@ -77,10 +70,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTLL7LPB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
   <!-- Accessibilité -->
   <a href="#main" class="skip-link">Aller au contenu principal</a>
@@ -361,6 +350,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li class="service-card__feature">Site vitrine complet</li>
               <li class="service-card__feature">Optimisation continue</li>
             </ul>
+            <details class="service-card__charter">
+              <summary class="service-card__charter-summary">Nos 7 engagements qualité <span aria-hidden="true">+</span></summary>
+              <ul class="service-card__charter-list">
+                <li>Domaine et hébergement enregistrés <strong>à votre nom</strong> — votre site vous appartient.</li>
+                <li>Devis détaillé <strong>ligne par ligne</strong> avant tout versement.</li>
+                <li>Délai réaliste : <strong>1 à 3 semaines</strong> une fois vos contenus reçus.</li>
+                <li>Paiements <strong>par étapes</strong>, jamais 100&nbsp;% d'avance — reçu écrit à chaque versement.</li>
+                <li>Réalisations <strong>vérifiables en ligne</strong>, à ouvrir sur votre téléphone.</li>
+                <li>Coûts après-vente <strong>chiffrés avant de signer</strong> (domaine, hébergement, maintenance).</li>
+                <li><strong>Un interlocuteur unique</strong> : Gaëtan, joignable.</li>
+              </ul>
+              <a
+                class="service-card__charter-link"
+                href="https://docs.google.com/document/d/1MVlLgcgOvxxcrXiAe_3d8vb_iuWl5Uqq64uoRm9nhHk/edit"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Lire la charte complète <span aria-hidden="true">→</span></a>
+            </details>
             <a
               href="https://wa.me/c/24107915531"
               class="service-card__cta"
@@ -1993,6 +2000,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .form-status--error   { background: rgba(196,30,58,.08); border: 1px solid rgba(196,30,58,.2); color: var(--c-primary); }
     .nav__link--active    { color: var(--c-primary) !important; }
     [data-theme="dark"] .hero::after { background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px); }
+    .service-card__charter { margin: 0 0 1rem; border-top: 1px solid rgba(245,197,24,.35); padding-top: .85rem; }
+    .service-card__charter-summary { cursor: pointer; font-weight: 700; color: var(--c-accent); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+    .service-card__charter-summary::-webkit-details-marker { display: none; }
+    .service-card__charter-summary::marker { content: ""; }
+    .service-card__charter-list { margin: .8rem 0; padding-left: 1.15rem; font-size: .92rem; line-height: 1.6; }
+    .service-card__charter-list li { margin-bottom: .35rem; }
+    .service-card__charter-link { font-weight: 700; font-size: .92rem; color: var(--c-accent); }
   </style>
 
 </body>
