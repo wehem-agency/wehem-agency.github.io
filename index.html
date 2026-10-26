@@ -46,30 +46,119 @@
 
   <!-- Schema.org — LocalBusiness -->
   <script type="application/ld+json">
-  {
+{
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "WEHEM Digital Agency",
-    "description": "Agence de marketing digital : création de site internet, gestion des réseaux sociaux, référencement Google et stratégie digitale pour PME d'Afrique francophone.",
-    "url": "https://wehem-agency.github.io/",
-    "email": "abaghaabessolo@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Libreville",
-      "addressCountry": "GA"
-    },
-    "areaServed": ["Gabon", "Afrique francophone"],
-    "serviceType": ["Marketing Digital", "Création Site Internet", "Gestion Réseaux Sociaux", "Référencement Google", "Stratégie Digitale"],
-    "currenciesAccepted": "XAF",
-    "paymentAccepted": "Airtel Money, Moov Money, Visa",
-    "priceRange": "50 000 – 150 000 FCFA",
-    "sameAs": ["https://wa.me/c/24107915531"],
-    "image": "https://wehem-agency.github.io/images/hero-accueil.png",
-    "logo": "https://wehem-agency.github.io/assets/icons/icon-512.png"
+    "@graph": [
+      {
+        "@type": [
+          "LocalBusiness",
+          "ProfessionalService"
+        ],
+        "@id": "https://wehem-agency.github.io/#wehem",
+        "name": "WEHEM Digital Agency",
+        "description": "Agence de marketing digital : création de site internet, gestion des réseaux sociaux, référencement Google et stratégie digitale pour PME d'Afrique francophone.",
+        "url": "https://wehem-agency.github.io/",
+        "telephone": "+24177915531",
+        "email": "abaghaabessolo@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Libreville",
+          "addressCountry": "GA"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "areaServed": [
+          "Libreville",
+          "Akanda",
+          "Owendo",
+          "Gabon"
+        ],
+        "sameAs": [
+          "https://wa.me/c/24107915531"
+        ],
+        "currenciesAccepted": "XAF",
+        "paymentAccepted": "Airtel Money, Moov Money, Visa",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services WEHEM Digital Agency",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gestion des réseaux sociaux & contenu",
+                "url": "https://wehem-agency.github.io/services/reseaux-sociaux-contenu.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Référencement local & fiche Google",
+                "url": "https://wehem-agency.github.io/services/referencement-local-fiche-google.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Création de site internet",
+                "url": "https://wehem-agency.github.io/services/creation-site-internet.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "WhatsApp & chatbots IA",
+                "url": "https://wehem-agency.github.io/services/whatsapp-chatbots-ia.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Prospection B2B & génération de leads",
+                "url": "https://wehem-agency.github.io/services/prospection-b2b-leads.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Audit & stratégie digitale",
+                "url": "https://wehem-agency.github.io/services/audit-strategie-digitale.html"
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
   </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTLL7LPB');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTLL7LPB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <!-- Accessibilité -->
   <a href="#main" class="skip-link">Aller au contenu principal</a>
@@ -271,15 +360,15 @@
           <article class="service-card reveal reveal--delay-1">
             <div class="service-card__num" aria-hidden="true">01</div>
             <div class="service-card__img">
-              <img
+              <a href="services/reseaux-sociaux-contenu.html" aria-label="Réseaux Sociaux & Contenu — voir la page du service"><img
                 data-src="https://wehem-agency.github.io/images/service-facebook.png"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
                 alt="Réseaux Sociaux et Contenu WEHEM"
                 width="400" height="225"
                 loading="lazy"
-              />
+              /></a>
             </div>
-            <h3 class="service-card__title">Réseaux Sociaux & Contenu</h3>
+            <h3 class="service-card__title"><a href="services/reseaux-sociaux-contenu.html">Réseaux Sociaux & Contenu</a></h3>
             <p class="service-card__desc">
               Transformez vos réseaux en espaces actifs, utiles et réguliers — un contenu qui crée le lien avec votre audience locale, sans sacrifier votre temps.
             </p>
@@ -302,15 +391,15 @@
           <article class="service-card reveal reveal--delay-2">
             <div class="service-card__num" aria-hidden="true">02</div>
             <div class="service-card__img">
-              <img
+              <a href="services/referencement-local-fiche-google.html" aria-label="Référencement & Fiche Google — voir la page du service"><img
                 data-src="https://wehem-agency.github.io/images/service-google.png"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
                 alt="Référencement local Google Maps et fiche GBP optimisée par WEHEM"
                 width="400" height="225"
                 loading="lazy"
-              />
+              /></a>
             </div>
-            <h3 class="service-card__title">Référencement & Fiche Google</h3>
+            <h3 class="service-card__title"><a href="services/referencement-local-fiche-google.html">Référencement & Fiche Google</a></h3>
             <p class="service-card__desc">
               Apparaissez quand vos clients vous cherchent : fiche Google optimisée, avis gérés et réputation locale qui inspire confiance.
             </p>
@@ -333,15 +422,15 @@
           <article class="service-card reveal reveal--delay-3">
             <div class="service-card__num" aria-hidden="true">03</div>
             <div class="service-card__img">
-              <img
+              <a href="services/creation-site-internet.html" aria-label="Création de Site Internet — voir la page du service"><img
                 data-src="https://wehem-agency.github.io/images/service-site.png"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
                 alt="Création de site internet professionnel pour PME africaine par WEHEM"
                 width="400" height="225"
                 loading="lazy"
-              />
+              /></a>
             </div>
-            <h3 class="service-card__title">Création de Site Internet</h3>
+            <h3 class="service-card__title"><a href="services/creation-site-internet.html">Création de Site Internet</a></h3>
             <p class="service-card__desc">
               Un site vitrine professionnel qui présente votre activité et transforme vos visiteurs en clients — rapide, clair, pensé pour le mobile.
             </p>
@@ -382,15 +471,15 @@
           <article class="service-card reveal reveal--delay-1">
             <div class="service-card__num" aria-hidden="true">04</div>
             <div class="service-card__img">
-              <img
+              <a href="services/whatsapp-chatbots-ia.html" aria-label="WhatsApp & Chatbots IA — voir la page du service"><img
                 data-src="https://wehem-agency.github.io/images/service-whatsapp.png"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
                 alt="Chatbot WhatsApp Business et réponses automatiques pour PME"
                 width="400" height="225"
                 loading="lazy"
-              />
+              /></a>
             </div>
-            <h3 class="service-card__title">WhatsApp & Chatbots IA</h3>
+            <h3 class="service-card__title"><a href="services/whatsapp-chatbots-ia.html">WhatsApp & Chatbots IA</a></h3>
             <p class="service-card__desc">
               Ne perdez plus aucun client : réponses automatiques et prise de rendez-vous, même quand vous dormez.
             </p>
@@ -413,15 +502,15 @@
           <article class="service-card reveal reveal--delay-2">
             <div class="service-card__num" aria-hidden="true">05</div>
             <div class="service-card__img">
-              <img
+              <a href="services/prospection-b2b-leads.html" aria-label="Prospection B2B & Leads — voir la page du service"><img
                 data-src="https://wehem-agency.github.io/images/service-prospection.png"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
                 alt="Prospection B2B : génération de leads qualifiés pour entreprises africaines"
                 width="400" height="225"
                 loading="lazy"
-              />
+              /></a>
             </div>
-            <h3 class="service-card__title">Prospection B2B & Leads</h3>
+            <h3 class="service-card__title"><a href="services/prospection-b2b-leads.html">Prospection B2B & Leads</a></h3>
             <p class="service-card__desc">
               Remplissez votre carnet de commandes avec des prospects qualifiés — sans y passer vos journées.
             </p>
@@ -444,15 +533,15 @@
           <article class="service-card reveal reveal--delay-3">
             <div class="service-card__num" aria-hidden="true">06</div>
             <div class="service-card__img">
-              <img
+              <a href="services/audit-strategie-digitale.html" aria-label="Audit & Stratégie Digitale — voir la page du service"><img
                 data-src="https://wehem-agency.github.io/images/service-audit.png"
                 src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3C/svg%3E"
                 alt="Audit et Stratégie Digitale WEHEM"
                 width="400" height="225"
                 loading="lazy"
-              />
+              /></a>
             </div>
-            <h3 class="service-card__title">Audit & Stratégie Digitale</h3>
+            <h3 class="service-card__title"><a href="services/audit-strategie-digitale.html">Audit & Stratégie Digitale</a></h3>
             <p class="service-card__desc">
               Comprenez ce qui bloque votre visibilité et repartez avec des actions prioritaires, réalistes et mesurables — adaptées à votre budget.
             </p>
@@ -1999,6 +2088,8 @@
     .form-status--success { background: rgba(0,107,60,.08); border: 1px solid rgba(0,107,60,.2); color: var(--c-secondary); }
     .form-status--error   { background: rgba(196,30,58,.08); border: 1px solid rgba(196,30,58,.2); color: var(--c-primary); }
     .nav__link--active    { color: var(--c-primary) !important; }
+    .service-card__title a { color: inherit; text-decoration: none; }
+    .service-card__title a:hover { color: var(--c-primary); }
     [data-theme="dark"] .hero::after { background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px); }
     .service-card__charter { margin: 0 0 1rem; border-top: 1px solid rgba(245,197,24,.35); padding-top: .85rem; }
     .service-card__charter-summary { cursor: pointer; font-weight: 700; color: var(--c-accent); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
