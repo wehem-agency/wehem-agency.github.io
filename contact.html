@@ -8,6 +8,131 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KTLL7LPB');</script>
 <!-- End Google Tag Manager -->
+<script type="text/javascript">
+  var _kmq = _kmq || [];
+  var _kmk = _kmk || '31aa8740e9da37a63ae80dafeb86dacc94392625';
+  var KM_SKIP_PAGE_VIEW = true;
+  function _kms(u){
+    setTimeout(function(){
+      var d = document, f = d.getElementsByTagName('script')[0],
+      s = d.createElement('script');
+      s.type = 'text/javascript'; s.async = true; s.src = u;
+      f.parentNode.insertBefore(s, f);
+    }, 1);
+  }
+  _kms('//i.kissmetrics.io/i.js');
+  _kms('//scripts.kissmetrics.io/' + _kmk + '.2.js');
+    (function(){
+    function txt(el){ return (el.innerText || el.textContent || '').trim().slice(0, 120); }
+    function attr(el, n){ return el && el.getAttribute ? el.getAttribute(n) : null; }
+
+    var last = null;
+    function pv(){
+      var p = location.pathname + location.search;
+      if (p === last) return;
+      var props = { 'Current Page': p, 'Page URL': location.href };
+      if (last) props['Previous Page'] = last;
+      else if (document.referrer) props['Referrer URL'] = document.referrer;
+      last = p;
+      _kmq.push(['record', 'Viewed Page', props]);
+    }
+
+    pv();
+    var ps = history.pushState; history.pushState = function(){ var r = ps.apply(this, arguments); pv(); return r; };
+    var rs = history.replaceState; history.replaceState = function(){ var r = rs.apply(this, arguments); pv(); return r; };
+    window.addEventListener('popstate', pv);
+
+    document.addEventListener('click', function(e){
+      var el = e.target;
+      for (var i = 0; el && el.nodeType === 1 && i < 8; i++, el = el.parentNode){
+        var tag = (el.tagName || '').toLowerCase();
+        var custom = attr(el, 'data-km-event');
+        if (tag === 'button' || tag === 'a' || custom){
+
+          if (attr(el, 'data-km-skip') !== null) return;
+          var props = { 'Element': tag, 'Current Page': location.pathname };
+          var t = txt(el); if (t) props['Text'] = t;
+          if (el.id) props['Id'] = el.id;
+          var href = attr(el, 'href'); if (href) props['Href'] = href;
+          _kmq.push(['record', custom || 'Button Clicked', props]);
+          return;
+        }
+      }
+    }, true);
+
+    var SKIP_TYPES = { password: 1, file: 1, hidden: 1, submit: 1, button: 1, reset: 1 };
+
+    var SENSITIVE_TYPE = { email: 1, tel: 1 };
+    var SENSITIVE_KEY = /(^|[_-])(e?mail|phone|tel|mobile|fax|ssn|social|sin|passport|card|cc|cvv|cvc|iban|dob|birth|pass|pwd|secret|token|otp|auth|address|addr|street|zip|postal|first_?name|last_?name|full_?name|fname|lname|surname)([_-]|$)|^name$/i;
+    var RESERVED_FIELD = { _k: 1, _p: 1, _n: 1, _t: 1, _d: 1 };
+    function formFields(f){
+      var props = {};
+      var els = f.elements;
+      for (var i = 0; i < els.length; i++){
+        var el = els[i];
+        var type = (el.type || '').toLowerCase();
+        if (SKIP_TYPES[type]) continue;
+        var key = el.name || el.id;
+
+        if (!key || RESERVED_FIELD[key]) continue;
+        if (type === 'checkbox' || type === 'radio'){ if (!el.checked) continue; }
+        var val;
+        if (type === 'select-multiple'){
+          var picked = [];
+          for (var j = 0; j < el.options.length; j++){ if (el.options[j].selected) picked.push(el.options[j].value); }
+          val = picked.join(', ');
+        } else {
+          val = el.value;
+        }
+        if (!val) continue;
+        var forceCapture = attr(el, 'data-km-capture') !== null;
+        var forceRedact = attr(el, 'data-km-redact') !== null;
+        if (forceRedact || (!forceCapture && (SENSITIVE_TYPE[type] || SENSITIVE_KEY.test(key)))){
+          props[key] = '<redacted>';
+        } else {
+          props[key] = val;
+        }
+      }
+      return props;
+    }
+    document.addEventListener('submit', function(e){
+      var f = e.target;
+      if (!f || (f.tagName || '').toLowerCase() !== 'form') return;
+      if (attr(f, 'data-km-skip') !== null) return;
+
+      var fields = formFields(f);
+      var props = {};
+      for (var k in fields){ props['Form Values'] = fields; break; }
+      var fid = f.id || attr(f, 'name'); if (fid) props['Form Id'] = fid;
+      var action = attr(f, 'action'); if (action) props['Action'] = action;
+      props['Current Page'] = location.pathname;
+      _kmq.push(['record', attr(f, 'data-km-event') || 'Form Submitted', props]);
+    }, true);
+
+    (function(){
+      var tries = 0;
+      function patch(){
+        tries++;
+        try {
+          var KM = window.KM;
+          if (KM && typeof KM._processEvent === 'function' && !KM._processEvent.__kmDeduped){
+            var orig = KM._processEvent;
+            KM._processEvent = function(type){
+              if (type === 'mousedown' || type === 'submit') return;
+              return orig.apply(this, arguments);
+            };
+            KM._processEvent.__kmDeduped = true;
+            return true;
+          }
+        } catch(e){}
+        return false;
+      }
+      if (!patch()){
+        var iv = setInterval(function(){ if (patch() || tries > 50) clearInterval(iv); }, 100);
+      }
+    })();
+  })();
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
